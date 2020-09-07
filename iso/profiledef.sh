@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="archcraft"
-iso_label="archcraft_$(date +%Y%m)"
-iso_publisher="Aditya Shakya <http://www.github.com/adi1090x>"
+iso_name="packarch"
+iso_label="packarch_$(date +%Y%m)"
+iso_publisher="Fabrice Corraire <https://github.com/Antidote1911>"
 iso_application="Yet another minimal linux distribution, based on Arch Linux."
 iso_version="$(date +%Y.%m.%d)"
 install_dir="arch"

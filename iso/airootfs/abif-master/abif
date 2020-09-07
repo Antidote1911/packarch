@@ -25,13 +25,13 @@
 #															#
 
 # This MUST be the same as listed in /etc/hosts
-ISO_HOST="archcraft"                           		# ISO Host Name
+ISO_HOST="packarch"                           		# ISO Host Name
 
 # This MUST be the same as the live account
 ISO_USER="liveuser"           						# Live user account.
 
 # Call this what you like
-VERSION="Archcraft Installer"						# Installer Name / Version
+VERSION="Packarch Installer"						# Installer Name / Version
 
 # This should not need to be changed
 TRANS_SRC="/abif-master"							# Dir where translation files are stored
@@ -45,11 +45,11 @@ ANSWER="/tmp/.abif"
 
 # Installation
 BOOTLOADER="n/a"      								# Which bootloader has been installed?
-KEYMAP="us"          								# Virtual console keymap. Default is "us"
-XKBMAP="us"      	    							# X11 keyboard layout. Default is "us"
+KEYMAP="fr"          								# Virtual console keymap. Default is "us"
+XKBMAP="fr"      	    							# X11 keyboard layout. Default is "us"
 ZONE=""               								# For time
 SUBZONE=""            								# For time
-LOCALE="en_US.UTF-8"  								# System locale. Default is "en_US.UTF-8"
+LOCALE="fr_FR.UTF-8"  								# System locale. Default is "en_US.UTF-8"
 
 # Architecture
 ARCHI=$(uname -m)     								# Display whether 32 or 64 bit system
@@ -88,7 +88,7 @@ FS_OPTS=""											# FS mount options available
 CHK_NUM=16											# Used for FS mount options checklist length
 
 # Language Support
-CURR_LOCALE="en_US.UTF-8"   						# Default Locale
+CURR_LOCALE="fr_FR.UTF-8"   						# Default Locale
 FONT=""                     						# Set new font if necessary
 
 # Edit Files
@@ -383,7 +383,7 @@ generate_fstab() {
 # Set the installed system's hostname
 set_hostname() {
 
-   dialog --backtitle "$VERSION - $SYSTEM ($ARCHI)" --title " $_ConfBseHost " --inputbox "$_HostNameBody" 0 0 "archcraft" 2>${ANSWER} || config_base_menu
+   dialog --backtitle "$VERSION - $SYSTEM ($ARCHI)" --title " $_ConfBseHost " --inputbox "$_HostNameBody" 0 0 "packarch" 2>${ANSWER} || config_base_menu
 
    echo "$(cat ${ANSWER})" > ${MOUNTPOINT}/etc/hostname 2>/tmp/.errlog
    echo -e "#<ip-address>\t<hostname.domain.org>\t<hostname>\n127.0.0.1\tlocalhost.localdomain\tlocalhost\t$(cat ${ANSWER})\n::1\tlocalhost.localdomain\tlocalhost\t$(cat ${ANSWER})" > ${MOUNTPOINT}/etc/hosts 2>>/tmp/.errlog

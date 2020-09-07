@@ -6,7 +6,7 @@ checkname="$(cat /etc/os-release | grep -i NAME | head -n 1 | sed 's/NAME=//' | 
 checkjson="$(pacman -Q jsoncpp | awk '{print $2}')"
 
 check_os_name() {
-	if [[ "$checkname" != "Archcraft" ]]; then
+	if [[ "$checkname" != "Packarch" ]]; then
 		if [[ "$DESKTOP_SESSION" == "bspwm" ]]; then
 			dunstify -u critical -i /usr/share/icons/Hybrid/emblems/22/vcs-conflicting.svg "Issue Found!" "Run os_name.sh in terminal to resolve."
 		else

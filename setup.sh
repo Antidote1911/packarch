@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-## Pre-build script for archcraft OS.
+## Pre-build script for Packarch OS.
 
 ## ANSI Colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
@@ -58,7 +58,7 @@ prerequisite() {
 	fi
 	{ echo; echo ${ORANGE}"[*] ${BLUE}Modifying /usr/bin/mkarchiso - ${CYAN}"; echo; }
 	sudo cp /usr/bin/mkarchiso{,.bak} && sudo sed -i -e 's/-c -G -M/-i -c -G -M/g' /usr/bin/mkarchiso
-	sudo sed -i -e 's/archiso-x86_64/archcraftiso-x86_64/g' /usr/bin/mkarchiso
+	sudo sed -i -e 's/archiso-x86_64/packarchiso-x86_64/g' /usr/bin/mkarchiso
 	{ echo; echo -e ${ORANGE}"[*] ${GREEN}Succesfully Modified."; echo; }
 }
 
@@ -68,10 +68,10 @@ set_extra () {
 	{ echo ${ORANGE}"[*] ${BLUE}Setting Up Oh-My-Zsh - ${CYAN}"; echo; }
 	cd $DIR/iso/airootfs/etc/skel && git clone https://github.com/robbyrussell/oh-my-zsh.git --depth 1 .oh-my-zsh
 	cp $DIR/iso/airootfs/etc/skel/.oh-my-zsh/templates/zshrc.zsh-template $DIR/iso/airootfs/etc/skel/.zshrc
-	sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="archcraft"/g' $DIR/iso/airootfs/etc/skel/.zshrc
-	# Archcraft ZSH theme
-	cat > $DIR/iso/airootfs/etc/skel/.oh-my-zsh/custom/themes/archcraft.zsh-theme <<- _EOF_
-		# Default OMZ theme for Archcraft
+	sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="packarch"/g' $DIR/iso/airootfs/etc/skel/.zshrc
+	# Packarch ZSH theme
+	cat > $DIR/iso/airootfs/etc/skel/.oh-my-zsh/custom/themes/packarch.zsh-theme <<- _EOF_
+		# Default OMZ theme for Packarch
 
 		if [[ "\$USER" == "root" ]]; then
 		  PROMPT="%(?:%{\$fg_bold[red]%}%{\$fg_bold[yellow]%}%{\$fg_bold[red]%} :%{\$fg_bold[red]%} )"

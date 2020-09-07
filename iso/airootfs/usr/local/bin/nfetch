@@ -5613,7 +5613,7 @@ dhhyys+/-`
 EOF
         ;;
 
-        "Archcraft"*)
+        "Packarch"*)
             set_colors 6 6 7 1
             read -rd '' ascii_data <<'EOF'
 ${c1}                   -m:                        

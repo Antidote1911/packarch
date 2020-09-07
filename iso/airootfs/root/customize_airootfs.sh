@@ -6,7 +6,7 @@ set -e -u
 
 # Warning: customize_airootfs.sh is deprecated! Support for it will be removed in a future archiso version.
 
-sed -i 's/#\(en_US\.UTF-8\)/\1/' /etc/locale.gen
+sed -i 's/#\(fr_FR\.UTF-8\)/\1/' /etc/locale.gen
 locale-gen
 
 sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
@@ -16,29 +16,29 @@ sed -i "s/#Server/Server/g" /etc/pacman.d/mirrorlist
 
 ## Disto Info
 cat > "/etc/os-release" <<- EOL
-	NAME="Archcraft"
-	PRETTY_NAME="Archcraft"
+	NAME="Packarch"
+	PRETTY_NAME="Packarch"
 	ID=arch
 	BUILD_ID=rolling
 	ANSI_COLOR="38;2;23;147;209"
-	HOME_URL="https://archcraft-os.github.io/"
-	LOGO=archcraft
+	HOME_URL="https://github.com/Antidote1911/packarch"
+	LOGO=packarch
 EOL
 
 cat > "/etc/issue" <<- EOL
-	Archcraft \r (\l)
+	Packarch \r (\l)
 EOL
 
-## Append archcraft repository to pacman.conf
+## Append packarch repository to pacman.conf
 cat >> "/etc/pacman.conf" <<- EOL
 
 [multilib]
 Include = /etc/pacman.d/mirrorlist
 
-## Archcraft Repository
-[archcraft]
+## Packarch Repository
+[packarch]
 SigLevel = Optional TrustAll
-Server = https://archcraft-os.github.io/archcraft-pkgs/\$arch
+Server = https://github.com/Antidote1911/packarch-pkgs/\$arch
 EOL
 
 ## Hide Unnecessary Apps
