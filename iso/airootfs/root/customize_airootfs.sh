@@ -38,7 +38,7 @@ Include = /etc/pacman.d/mirrorlist
 ## Packarch Repository
 [packarch]
 SigLevel = Optional TrustAll
-Server = https://github.com/Antidote1911/packarch-pkgs/\$arch
+Server = https://Antidote1911.github.io/packarch-pkgs/\$arch
 EOL
 
 ## Hide Unnecessary Apps

@@ -110,8 +110,12 @@ xorg-xrdb
 
 ##-------- GPU Drivers (Intel/AMD/Nvidia) --------##
 xf86-video-intel
+xf86-video-vmware
+xf86-video-amdgpu
+xf86-video-vesa
 xf86-video-amdgpu
 xf86-video-nouveau
+open-vm-tools
 
 ##-------- Networking --------##
 networkmanager
@@ -176,6 +180,7 @@ os-prober
 p7zip
 patch
 pcmanfm
+picom
 pkg-config
 plank
 polkit
@@ -228,7 +233,6 @@ ac-wallpapers
 ##-------- AUR Packages --------##
 betterlockscreen
 colorpicker
-compton-tryone-git
 grub-silent
 ksuperkey
 networkmanager-dmenu-git

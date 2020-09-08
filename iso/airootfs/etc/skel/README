@@ -1,0 +1,4 @@
+Activate VMTools
+-----------------------------
+sudo systemctl enable vmtoolsd
+sudo systemctl start vmtoolsd
