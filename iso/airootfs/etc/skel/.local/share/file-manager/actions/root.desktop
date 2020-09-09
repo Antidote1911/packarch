@@ -8,5 +8,5 @@ Profiles=on_folder;
 Name[fr_FR]=pcmanfmroot
 
 [X-Action-Profile on_folder]
-Exec=sudo pcmanfm %f
+Exec=apps_as_root.sh pcmanfm %f
 MimeTypes=inode/directory;

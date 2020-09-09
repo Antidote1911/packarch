@@ -1,5 +1,15 @@
 #!/bin/bash
 
+WM="$DESKTOP_SESSION"
+LOGOUT=""
+
+if [[ $WM == "bspwm" ]]; then
+	LOGOUT="bspc quit"
+  	
+  	elif [[ $WM == "herbstluftwm" ]]; then
+  	LOGOUT="herbstclient quit"
+	fi
+
 cat <<EOF | xmenu | sh &
 Internet					firefox
 File Manager
@@ -13,16 +23,16 @@ Htop						termite -e htop
 
 Apps as root
 	Terminal
-		Termite				sudo termite -c /root/.config/termite/config
-		Termite Float			sudo termite --class termite-float -c /root/.config/termite/config
+		Termite				apps_as_root.sh termite -c /root/.config/termite/config
+		Termite Float			apps_as_root.sh termite --class termite-float -c /root/.config/termite/config
 	File Manager
-		Ranger				sudo termite -c /root/.config/termite/config -e ranger
-		Ranger Float			sudo termite --class termite-float -c /root/.config/termite/config -e ranger
+		Ranger				apps_as_root.sh termite -c /root/.config/termite/config -e ranger
+		Ranger Float			apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e ranger
 		Pcmanfm			sudo pcmanfm
-	Leafpad					sudo leafpad
-	Geany					sudo geany
-	Ranger					sudo termite --class termite-float -c /root/.config/termite/config -e ranger
-	NVim					sudo termite --class termite-float -c /root/.config/termite/config -e nvim
+	Leafpad					apps_as_root.sh leafpad
+	Geany					apps_as_root.sh geany
+	Ranger					apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e ranger
+	NVim					apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e nvim
 Applications
 	Multimedia
 		SMplayer			smplayer
@@ -123,8 +133,7 @@ Places
 
 Lock Screen					betterlockscreen -l blur
 Power
-	Logout					bspc quit
-	Reboot					my_powermenu --reboot
-	Suspent					my_powermenu --suspent
-	Shutdown				my_powermenu --shutdown
+	Logout					$LOGOUT
+	Reboot					systemctl reboot
+	Shutdown				systemctl poweroff
 EOF

@@ -26,6 +26,7 @@ exfatprogs
 #exfat-utils
 f2fs-tools
 fsarchiver
+gcolor3
 gnu-netcat
 gpm
 gptfdisk
@@ -207,7 +208,6 @@ udisks2
 unrar
 unzip
 viewnior
-vim
 wget
 xarchiver
 xclip
@@ -243,6 +243,8 @@ font-manager
 grub-silent
 ksuperkey
 networkmanager-dmenu-git
+numix-folders-git
+numix-icon-theme-git
 obmenu-generator
 perl-linux-desktopfiles
 plymouth

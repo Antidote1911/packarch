@@ -23,22 +23,22 @@ options="$terminal\n$files\n$editor\n$clifm\n$lpad\n$vim"
 chosen="$(echo -e "$options" | $rofi_command -p "Run as root(#)" -dmenu -selected-row 0)"
 case $chosen in
     $terminal)
-        apps_as_root 'termite --class termite-float -c /root/.config/termite/config'
+        apps_as_root.sh 'termite --class termite-float -c /root/.config/termite/config'
         ;;
     $files)
-        apps_as_root 'dbus-run-session pcmanfm'
+        apps_as_root.sh 'dbus-run-session pcmanfm'
         ;;
     $editor)
-        apps_as_root geany
+        apps_as_root.sh geany
         ;;
     $clifm)
-        apps_as_root 'termite --class termite-float -c /root/.config/termite/config -e ranger'
+        apps_as_root.sh 'termite --class termite-float -c /root/.config/termite/config -e ranger'
         ;;
     $lpad)
-        apps_as_root leafpad
+        apps_as_root.sh leafpad
         ;;
     $vim)
-        apps_as_root 'termite --class termite-float -c /root/.config/termite/config -e vim'
+        apps_as_root.sh 'termite --class termite-float -c /root/.config/termite/config -e vim'
         ;;
 esac
 

@@ -1,12 +1,12 @@
 [Desktop Entry]
 Type=Action
-Tooltip=Edition Vim Root
-Name=Edition Vim Root
+Tooltip=Vim edit
+Name=Vim edit
 Icon=txt
 Profiles=on_file;
 
-Name[fr_FR]=vimeditroot
+Name[fr_FR]=editionvim
 
 [X-Action-Profile on_file]
-Exec=sudo termite -e "vim %F"
+Exec=termite -e "vim %F"
 MimeTypes=!inode/directory;*;

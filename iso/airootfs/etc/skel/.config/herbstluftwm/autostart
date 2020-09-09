@@ -90,13 +90,13 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # TAGS or WORKSPACES
 
 #names to display in menu
-tag_names=( {1..10} )
+tag_names=( {1..6} )
 #tag_names=("Web" "Chat" "Edit" "Meld" "Vb" "Mail" "Video" "Image" "Files" "Music")
 #tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
 
 #keys to press to get to the tags
 #Qwerty
-tag_keys=( {1..10} 0 )
+tag_keys=( {1..6} 0 )
 
 #Belgian azerty
 #tag_keys=( ampersand eacute quotedbl apostrophe parenleft section egrave exclam ccedilla agrave )
@@ -270,16 +270,13 @@ hc unlock
 #single polybar at top
 hc pad 0 30
 #second polybar at bottom
-#hc pad 0 30 0 30 0
-#single polybar at top
-hc pad 1 30
-#second polybar at bottom
-#hc pad 1 30 0 30 0
+hc pad 0 30 0 30 0
 
 #keybindings are in config of sxhkd - interchangeable with other TWM
 sxhkd -c ~/.config/herbstluftwm/sxhkd/sxhkdrc &
 
 #launching polybar
+killall polybar &
 ~/.config/polybar/launch_for_hlwm.sh &
 
 #change your keyboard if you need it
@@ -289,13 +286,15 @@ sxhkd -c ~/.config/herbstluftwm/sxhkd/sxhkdrc &
 pkill -u $USER '^picom$'
 picom  --config $HOME/.config/herbstluftwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 xsetroot -solid '#000000'
 xsetroot -cursor_name left_ptr &
+xfsettingsd &
 xfce4-power-manager &
 numlockx on &
 nitrogen --restore &
+dunst &
+mpd &
 # caffeine &
 # vivaldi-stable &
 # firefox &
@@ -306,3 +305,4 @@ nitrogen --restore &
 # run telegram-desktop &
 # spotify &
 # atom &
+# /usr/lib/xfce4/notifyd/xfce4-notifyd &

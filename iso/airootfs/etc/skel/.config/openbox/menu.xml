@@ -27,32 +27,32 @@
 		<menu id="root-menu-8397" label="Apps As Root">
 			<item label="Termite">
 				<action name="Execute">
-					<execute>sudo termite</execute>
+					<execute>apps_as_root.sh termite</execute>
 				</action>
 			</item>
 			<item label="Pcmanfm">
 				<action name="Execute">
-					<execute>sudo pcmanfm</execute>
+					<execute>apps_as_root.sh 'dbus-run-session pcmanfm'</execute>
 				</action>
 			</item>
 			<item label="Ranger">
 				<action name="Execute">
-					<execute>sudo termite -e ranger</execute>
+					<execute>apps_as_root.sh 'termite -e ranger'</execute>
 				</action>
 			</item>
 			<item label="Geany">
 				<action name="Execute">
-					<execute>sudo geany</execute>
+					<execute>apps_as_root.sh geany</execute>
 				</action>
 			</item>
 			<item label="leafpad">
 				<action name="Execute">
-					<execute>sudo leafpad</execute>
+					<execute>apps_as_root.sh leafpad</execute>
 				</action>
 			</item>
 			<item label="Vim">
 				<action name="Execute">
-					<execute>sudo termite -e vim</execute>
+					<execute>apps_as_root.sh 'termite -e nvim'</execute>
 				</action>
 			</item>
 		</menu>
@@ -171,17 +171,17 @@
 				<separator/>
 				<item label="Edit menu.xml">
 					<action name="Execute">
-						<command>termite --class termite-float -e "vim ~/.config/openbox/menu.xml"</command>						
+						<command>termite --class termite-float -e "nvim ~/.config/openbox/menu.xml"</command>						
 					</action>
 				</item>
 				<item label="Edit rc.xml">
 					<action name="Execute">
-						<command>termite --class termite-float -e "vim ~/.config/openbox/rc.xml"</command>
+						<command>termite --class termite-float -e "nvim ~/.config/openbox/rc.xml"</command>
 					</action>
 				</item>
 				<item label="Edit autostart">
 					<action name="Execute">
-						<command>termite --class termite-float -e "vim ~/.config/openbox/autostart"</command>
+						<command>termite --class termite-float -e "nvim ~/.config/openbox/autostart"</command>
 					</action>
 				</item>
 				<separator/>

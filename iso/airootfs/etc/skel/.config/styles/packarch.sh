@@ -48,7 +48,7 @@ geany () {
 gtk () {
 	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "Arc"
-	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Hybrid_Light"
+	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
