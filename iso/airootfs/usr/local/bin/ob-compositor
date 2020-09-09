@@ -1,126 +1,118 @@
-#!/usr/bin/env bash
+#!/bin/bash
+#    am-compositor: an Openbox Pipe Menu for use with picom compositor
+#    Copyright (C) 2012 Philip Newborough   <corenominal@corenominal.org>
+#    Copyright (C) 2013 Aleks-Daniel Jakimenko
+#    Copyright (C) 2015 John Crawley    <john@bunsenlabs.org>
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, either version 3 of the License, or
+#    (at your option) any later version.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-# al-compositor: an Openbox Pipe Menu for use with compton compositor
-# Copyright (C) 2012 Philip Newborough <corenominal@corenominal.org>
-# Copyright (C) 2013 Aleks-Daniel Jakimenko
-# Copyright (C) 2015 John Crawley <john@bunsenlabs.org>
+HELP='    am-compositor an Openbox Pipe Menu for use with picom compositor
+    It should normally be called from an openbox menu.
 
-# User's config dir
-dir="$HOME/.config/"
-
-readonly EXECXCOMP='compton -b'
-readonly RESTART_ATTEMPTS=20
-readonly HELP='
-al-compositor an openbox pipe menu for use with compton
-It should normally be called from an openbox menu.
-
-Options (passed from the menu):
+Options (usually passed from the menu):
     -h --help   show this message
     --start     start the compositor and restart tint2, if running
-    --restart   restart the compositor, if running
+    --restart   restart the compositor, if running, and restart tint2
     --stop      stop the compositor
-    --edit      open the compton config file in a text editor
-    --watch     restart compton when the config is modified (useful for debugging)
+    --edit      open the picom config file in a text editor
+    --watch     restart the compositor whenever the config file is modified
+    (--watch is useful for debugging)
 
-If al-compositor is called with no options (the usual method),
-it will output an xml openbox pipemenu for handling compositing.
+    If am-compositor is called with no options (the usual method),
+    it will output an xml openbox pipemenu for handling compositing.
 
-See ~/.config/compton.conf and "man compton" for configuration options.'
-
-for i in "$@"; do
+See ~/.config/picom.conf and "man picom" for configuration options.
+'
+# look for a help option somewhere
+for i in "$@"
+do
     case "$i" in
-        -h|--help) echo "$HELP" ; exit 0
+    -h|--help)
+        echo "$HELP"
+        exit 0
+        ;;
     esac
 done
 
-if ! . "/usr/lib/archlabs/common/al-include.cfg" 2>/dev/null; then
-    echo $"Error: Failed to source /usr/lib/archlabs/common/al-include.cfg" >&2 ; exit 1
+RESTART_ATTEMPTS=20 # times to try killall before reverting to -s KILL
+
+BL_COMMON_LIBDIR='/usr/lib/archlabs/common'
+
+if ! . "$BL_COMMON_LIBDIR/al-include.cfg" 2> /dev/null; then
+    echo $"Error: Failed to source al-include.cfg in $BL_COMMON_LIBDIR" >&2
+    exit 1
 fi
 
-declareDependencies compton
+declareDependencies picom
 
-forcekill_compton() {
-    killall -q compton
-    for ((i=0; i<RESTART_ATTEMPTS; i++)); do
-        [[ $(pidof compton) ]] || break
-        killall -q -S KILL compton
+# ------------- Set picom command options -----------------------------------
+EXECXCOMP='picom -b'
+
+forcekill_picom() {
+    killall -q picom
+    for (( i=0; i < RESTART_ATTEMPTS; i++ )); do
+        pidof picom > /dev/null ||
+            break
+
+        (( i == RESTART_ATTEMPTS - 1 )) &&
+            killall -q -S KILL picom
+
         sleep 0.25
     done
 }
 
 
-if [[ $1 = '--edit' ]]; then # Edit compton settings
-    if ! [ -e "$HOME/.config/compton.conf" ]; then
-        cp '/etc/skel/.config/compton.conf' "$HOME/.config/compton.conf"
-    fi
-    if hash exo-open &>/dev/null; then
-        exo-open "$HOME/.config/compton.conf"
+if [[ $1 = '--edit' ]]; then # Edit picom settings
+    [[ ! -f $HOME/.config/picom.conf ]] &&
+        cp '/etc/xdg/picom.conf' "$HOME/.config/picom.conf"
+
+    if type geany >/dev/null;then
+        geany "$HOME/.config/picom.conf"
     else
-        termite -e "$EDITOR $HOME/.config/compton.conf"
+        termite -T 'edit picom.conf' -e nano "$HOME/.config/picom.conf"
     fi
 elif [[ $1 = '--start' ]]; then
-    if ! [[ $(pidof compton) ]]; then
+    if ! pidof picom > /dev/null; then
         $EXECXCOMP
+        am-tint2restart || true
     else
-        echo "$0 --start: compton already running" && exit 1
+        echo "$0 --start: picom already running" >&2
     fi
-
 elif [[ $1 = '--stop' ]]; then
-    forcekill_compton
-
+    forcekill_picom
 elif [[ $1 = '--restart' ]]; then
-    if [[ $(pidof compton) ]]; then
-        forcekill_compton
+    if pidof picom > /dev/null; then
+        forcekill_picom
         "$0" --start
     else # nothing to restart
-        echo "$0 --restart: compton is not running" && exit 1
+        echo "$0 --restart: picom is not running" >&2
     fi
-
 elif [[ $1 = '--watch' ]]; then
-    while inotifywait -e close_write "$HOME/.config/compton.conf"; do
+    while inotifywait -e close_write "$HOME/.config/picom.conf"; do
         "$0" --restart
     done
-
-elif [[ $1 = '--enableblur' ]]; then
-    sed -i -e 's/blur-background = .*/blur-background = true;/g' $dir/compton.conf
-    sed -i -e 's/blur-background-frame = .*/blur-background-frame = true;/g' $dir/compton.conf
-    "$0" --restart
-
-elif [[ $1 = '--disableblur' ]]; then
-    sed -i -e 's/blur-background = .*/blur-background = false;/g' $dir/compton.conf
-    sed -i -e 's/blur-background-frame = .*/blur-background-frame = false;/g' $dir/compton.conf
-    "$0" --restart
-
-elif [[ $1 = '--blurstr' ]]; then
-	bstr=$(yad --title='Blur Strength' --button=Cancle:1 --button=Okay:0  --scale --value=5 --min-value=1 --max-value=20)
-	if [[ "$bstr" ]]; then
-		sed -i -e "s/blur-strength = .*/blur-strength = $bstr;/g" $dir/compton.conf
-		"$0" --restart
-	else
-		exit 0
-	fi
-
 else
+    # Output Openbox menu
     menuStart
-    if ! [[ $(pidof compton) ]]; then
+    if ! pidof picom > /dev/null; then
         menuItem 'Enable Compositing' "$0 --start"
     else
-		if [[ $(cat $dir/compton.conf | grep -i 'blur-background = false;') ]]; then
-			menuItem 'Enable Blur Effect' "$0 --enableblur"
-		else
-			menuItem 'Set Blur Strength' "$0 --blurstr"
-			menuItem 'Disable Blur Effect' "$0 --disableblur"
-		fi
-        menuSeparator
         menuItem 'Restart Compositing' "$0 --restart"
         menuItem 'Disable Compositing' "$0 --stop"
         menuSeparator
     fi
-    if [[ -e /usr/bin/paranoid.py ]]; then
-        menuItem 'compton Settings GUI' "paranoid.py"
-    fi
-    menuItem 'Edit compton Config' "$0 --edit"
+    menuItem 'Edit Compositing Settings' "$0 --edit"
     menuEnd
 fi
-
 exit 0

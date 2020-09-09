@@ -1,5 +1,10 @@
 #!/bin/bash
 
+## Author : Aditya Shakya (adi1090x)
+## Mail : adi1090x@gmail.com
+## Github : @adi1090x
+## Reddit : @adi1090x
+
 # Available Styles
 # >> Styles Below Only Works With "rofi-git(AUR)", Tested On Version: 1.5.4-76-gca067234
 # full     full_circle     full_rounded     full_alt
@@ -8,7 +13,7 @@
 # single     single_circle     single_full     single_full_circle     single_rounded     single_text
 
 ## Default
-DIR="default"
+DIR="styles"
 STYLE="powermenu"
 
 rofi_command="rofi -theme $DIR/$STYLE.rasi"
@@ -24,11 +29,11 @@ if [[ "$DIR" == "powermenus" ]]; then
 	logout=""
 	ddir="$HOME/.config/rofi/$DIR"
 else
-	shutdown=" Shutdown"
-	reboot=" Restart"
-	lock=" Lock"
-	suspend=" Sleep"
-	logout=" Logout"
+	shutdown=""
+	reboot=""
+	lock=""
+	suspend=""
+	logout=""
 	ddir="$HOME/.config/rofi/dialogs"
 fi
 
@@ -84,7 +89,7 @@ case $chosen in
     $logout)
 		ans=$(rdialog)
 		if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
-        openbox --exit
+			bspc quit        
 		elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
         exit
         else

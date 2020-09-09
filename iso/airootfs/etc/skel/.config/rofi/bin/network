@@ -1,6 +1,11 @@
 #!/bin/bash
 
-STYLE="default"
+## Author : Aditya Shakya (adi1090x)
+## Mail : adi1090x@gmail.com
+## Github : @adi1090x
+## Reddit : @adi1090x
+
+STYLE="styles"
 
 rofi_command="rofi -theme $STYLE/network.rasi"
 
@@ -23,7 +28,7 @@ if (ping -c 1 archlinux.org || ping -c 1 google.com || ping -c 1 bitbucket.org |
         fi
 	active="-a 0"
 	SSID="$(iwgetid -r)"
-	PIP="$(wget --timeout=30 http://ipinfo.io/ip -qO -)"
+	PIP="$(dig +short myip.opendns.com @resolver1.opendns.com )"
 	fi
 else
     urgent="-u 0"
@@ -40,7 +45,7 @@ launch=" Open Connection Editor"
 options="$connected\n$bmon\n$launch_cli\n$launch"
 
 ## Main
-chosen="$(echo -e "$options" | $rofi_command -p "$SSID : $PIP" -dmenu $active $urgent -selected-row 1)"
+chosen="$(echo -e "$options" | $rofi_command -p "$SSID  :  $PIP" -dmenu $active $urgent -selected-row 1)"
 case $chosen in
     $connected)
 		if [[ $STATUS == *"enable"* ]]; then

@@ -132,6 +132,9 @@ sxhkd
 arc-gtk-theme
 arc-icon-theme
 
+##-------- Herbstluftwm --------##
+herbstluftwm
+
 ##-------- Programs --------##
 alsa-plugins
 alsa-tools
@@ -148,6 +151,7 @@ fakeroot
 feh
 ffmpeg
 ffmpegthumbnailer
+firefox
 gcc
 geany
 geany-plugins
@@ -168,7 +172,6 @@ leafpad
 lxappearance
 lxdm-gtk3
 make
-midori
 mpc
 mpd
 mplayer
@@ -176,6 +179,7 @@ ncdu
 ncmpcpp
 nitrogen
 noto-fonts
+neovim
 os-prober
 p7zip
 patch
@@ -231,8 +235,11 @@ ac-pixmaps
 ac-wallpapers
 
 ##-------- AUR Packages --------##
+bibata-cursor-theme
 betterlockscreen
+cava
 colorpicker
+font-manager
 grub-silent
 ksuperkey
 networkmanager-dmenu-git
@@ -241,4 +248,5 @@ perl-linux-desktopfiles
 plymouth
 polybar
 rofi-git
+xtitle-git
 yay

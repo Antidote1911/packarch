@@ -1,17 +1,17 @@
 [global]
 monitor = 0
 follow = mouse
-geometry = "280x50-10+44"
+geometry = "250x50-10+38"
 indicate_hidden = yes
 shrink = no
 separator_height = 4
 separator_color = auto
 padding = 20
 horizontal_padding = 20
-frame_width = 0
+frame_width = 1
 sort = no
 idle_threshold = 120
-font = Iosevka Custom 9
+font = Noto Sans 11
 line_height = 4
 markup = full
 format = %s\n%b
@@ -38,19 +38,19 @@ history = ctrl+grave
 context = ctrl+shift+period
 
 [urgency_low]
-timeout = 3
-background = "#212B30"
-foreground = "#C4C7C5"
-frame_color = "#4DD0E1"
+timeout = 4
+background = "#2f343f"
+foreground  = "#c0b18b"
+frame_color = "#c0b18b"
 
 [urgency_normal]
-timeout = 5
-background = "#212B30"
-foreground = "#C4C7C5"
-frame_color = "#4DD0E1"
+timeout = 6
+background = "#2f343f"
+foreground  = "#c0b18b"
+frame_color = "#c0b18b"
 
 [urgency_critical]
 timeout = 0
-background = "#212B30"
-foreground = "#EC407A"
-frame_color = "#EC407A"
+background = "#2f343f"
+foreground  = "#775759"
+frame_color = "#d17b49"

@@ -3,11 +3,11 @@
 * {
     background-color:       @BG;
     text-color:             @FG;
-	font:				 	"Iosevka 10";
+	font:				 	"NotoSans-Regular 10";
 }
 
 window {
-    width:      			200px;
+    width:      			180px;
     padding:    			20px;
     border:					0px;
     border-radius:          0px;

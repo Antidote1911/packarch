@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Action
+Tooltip=Edition Vim
+Name=Edition Vim
+Icon=vim
+Profiles=on_file;
+
+Name[fr_FR]=vimedit
+
+[X-Action-Profile on_file]
+Exec=termite -e "vim %F"
+MimeTypes=!inode/directory;*;

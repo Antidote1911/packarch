@@ -19,43 +19,43 @@
     <primaryMonitor>Mouse</primaryMonitor>
   </placement>
   <theme>
-    <name>adaptive</name>
-    <titleLayout>MLC</titleLayout>
-    <keepBorder>no</keepBorder>
+    <name>Velnias</name>
+    <titleLayout>CLM</titleLayout>
+    <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuHeader">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>Noto Sans</name>
-      <size>9</size>
+      <name>Noto Sans 11</name>
+      <size>11</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -99,10 +99,9 @@
     <showDelay>300</showDelay>
     <moveButton>Middle</moveButton>
   </dock>
-  <!-- ******************* KEYBINDINGS ******************* -->
+  <!-- KEYBINDINGS -->
   <keyboard>
     <chainQuitKey/>
-    <!-- Change Workspace/Desktop -->
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -128,7 +127,6 @@
         <to>5</to>
       </action>
     </keybind>
-    <!-- Move application to specific desktop -->
     <keybind key="S-W-1">
       <action name="SendToDesktop">
         <desktop>1</desktop>
@@ -154,7 +152,6 @@
         <desktop>5</desktop>
       </action>
     </keybind>
-    <!-- Switch b/w Applications -->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <allDesktops>no</allDesktops>
@@ -311,14 +308,12 @@
         <bottom>-20</bottom>
       </action>
     </keybind>
-    <!-- Send Application to next/prev desktop -->
     <keybind key="W-S-Left">
       <action name="SendToDesktopLeft"/>
     </keybind>
     <keybind key="W-S-Right">
       <action name="SendToDesktopRight"/>
     </keybind>
-    <!-- Media Controls-->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command>volume-up</command>
@@ -354,7 +349,6 @@
         <command>mpc next</command>
       </action>
     </keybind>
-    <!-- Brightness Control -->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
         <command>backlight-up</command>
@@ -365,7 +359,6 @@
         <command>backlight-down</command>
       </action>
     </keybind>
-    <!-- Screenshot Keys -->
     <keybind key="Print">
       <action name="Execute">
         <command>scrot 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
@@ -381,7 +374,7 @@
         <command>scrot -u -b 'Screenshot_%Y-%m-%d-%I-%M-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'</command>
       </action>
     </keybind>
-    <!-- Launch Applications -->
+    <!-- USER's Keys -->
     <keybind key="W-e">
       <action name="Execute">
         <command>geany</command>
@@ -389,15 +382,10 @@
     </keybind>
     <keybind key="W-f">
       <action name="Execute">
-        <command>thunar</command>
+        <command>pcmanfm</command>
       </action>
     </keybind>
     <keybind key="W-t">
-      <action name="Execute">
-        <command>termite</command>
-      </action>
-    </keybind>
-    <keybind key="W-Return">
       <action name="Execute">
         <command>termite</command>
       </action>
@@ -437,7 +425,7 @@
         <command>~/.config/rofi/bin/network</command>
       </action>
     </keybind>
-    <keybind key="W-p">
+    <keybind key="W-c">
       <action name="Execute">
         <command>color_picker</command>
       </action>
@@ -450,6 +438,11 @@
     <keybind key="C-A-t">
       <action name="Execute">
         <command>termite -c ~/.config/termite/config_easy</command>
+      </action>
+    </keybind>
+    <keybind key="C-A-l">
+      <action name="Execute">
+        <command>betterlockscreen --lock</command>
       </action>
     </keybind>
     <keybind key="C-A-v">
@@ -467,11 +460,6 @@
         <command>termite -e htop</command>
       </action>
     </keybind>
-    <keybind key="C-A-l">
-      <action name="Execute">
-        <command>betterlockscreen --lock</command>
-      </action>
-    </keybind>
     <!-- Openbox -->
     <keybind key="C-S-Escape">
       <action name="Exit"/>
@@ -487,10 +475,7 @@
         <command>xkill</command>
       </action>
     </keybind>
-    <keybind key="W-c">
-      <action name="Close"/>
-    </keybind>
-    <keybind key="W-q">
+    <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
     <keybind key="A-F5">
@@ -505,22 +490,18 @@
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
-    <!-- Activate Move/Resize -->
     <keybind key="A-r">
       <action name="Resize"/>
     </keybind>
     <keybind key="A-m">
       <action name="Move"/>
     </keybind>
-    <!-- Launch Openbox Menu -->
+    <keybind key="S-W-q">
+      <action name="Close"/>
+    </keybind>
     <keybind key="W-space">
       <action name="ShowMenu">
         <menu>root-menu</menu>
-      </action>
-    </keybind>
-    <keybind key="C-A-space">
-      <action name="ShowMenu">
-        <menu>app-menu</menu>
       </action>
     </keybind>
     <keybind key="A-space">
@@ -528,7 +509,6 @@
         <menu>client-menu</menu>
       </action>
     </keybind>
-    <!-- Windows Tiling -->
     <keybind key="W-KP_1">
       <action name="UnmaximizeFull"/>
       <action name="MoveResizeTo">
@@ -605,7 +585,6 @@
       </action>
     </keybind>
   </keyboard>
-  <!-- Ended Keyboard Shortcuts -->
   <mouse>
     <dragThreshold>4</dragThreshold>
     <doubleClickTime>400</doubleClickTime>
@@ -874,12 +853,14 @@
       <fullscreen>yes</fullscreen>
     </application>
     <application name="obconf">
-      <position force="yes">
-        <x>center</x>
-        <y>center</y>
+      <position force="no">
+        <x>25%</x>
+        <y>15%</y>
+        <monitor>1</monitor>
       </position>
       <size>
         <width>50%</width>
+        <height>50%</height>
       </size>
     </application>
     <application title="About : Aditya Shakya">
@@ -888,6 +869,10 @@
         <x>center</x>
         <y>center</y>
       </position>
+      <size>
+        <width>85%</width>
+        <height>80%</height>
+      </size>
     </application>
     <application title="file:///usr/share/adi1090x/index.html">
       <decor>no</decor>
@@ -895,29 +880,13 @@
         <x>center</x>
         <y>center</y>
       </position>
-    </application>
-    <application title="Getting Started">
-      <decor>yes</decor>
-      <position force="yes">
-        <x>center</x>
-        <y>center</y>
-      </position>
-    </application>
-    <application title="file:///usr/share/get_started/index.html">
-      <decor>yes</decor>
-      <position force="yes">
-        <x>center</x>
-        <y>center</y>
-      </position>
+      <size>
+        <width>85%</width>
+        <height>80%</height>
+      </size>
     </application>
     <application title="MPlayer">
       <decor>no</decor>
-    </application>
-    <application title="Nitrogen">
-      <position force="yes">
-        <x>center</x>
-        <y>center</y>
-      </position>
     </application>
     <!--	<application class="*">
 	  <focus>yes</focus>

@@ -2,7 +2,7 @@
 
 # A script to get colours from xrdb & deploy it to polybar, termite & rofi.
 
-DIR="$HOME/.config/bspwm"
+DIR="$HOME/.config"
 
 getcolors () {
 	FOREGROUND="$(xrdb -query | grep 'foreground:'| awk '{print $NF}')"
@@ -27,7 +27,7 @@ getcolors () {
 }
 
 bspbar () {
-	cat > $DIR/polybar/colors <<- EOF	
+	cat > $DIR/polybar/colors.ini <<- EOF	
 	[color]
 
 	FOREGROUND = ${FOREGROUND}
@@ -48,6 +48,19 @@ bspbar () {
 	ALTMAGENTA = ${ALTMAGENTA}
 	ALTCYAN = ${ALTCYAN}
 	ALTWHITE = ${ALTWHITE}
+	ORANGE = #E57C46
+	EOF
+}
+
+jgmenu () {
+	sed -i '/color/Q' $DIR/jgmenu/jgmenurc
+	cat >> $DIR/jgmenu/jgmenurc <<- EOF	
+	color_menu_bg		= ${BACKGROUND} 100
+	color_norm_bg		= ${BACKGROUND} 60
+	color_norm_fg		= ${FOREGROUND} 100
+	color_sel_bg			= ${BACKGROUND} 60
+	color_sel_fg			= ${BLUE} 100
+	color_sep_fg			= ${YELLOW} 40
 	EOF
 }
 
@@ -57,7 +70,7 @@ bspterm () {
 	[colors]
 
 	foreground=${FOREGROUND}
-	background=${BACKGROUND}
+	background = rgba(00, 00, 00, 0.6)
 	cursor=${CURSOR}
 
 	color0=${BLACK}
@@ -69,7 +82,7 @@ bspterm () {
 	color6=${CYAN}
 	color7=${WHITE}
 
-	color8=${ALTBLACK}
+	color8=${ALTCYAN}
 	color9=${ALTRED}
 	color10=${ALTGREEN}
 	color11=${ALTYELLOW}
@@ -78,27 +91,65 @@ bspterm () {
 	color14=${ALTCYAN}
 	color15=${ALTWHITE}
 	EOF
-	killall -USR1 termite
+	killall -USR1 termite >/dev/null 2>&1
 }
 
 bsprofi () {
-	cat > $DIR/rofi/themes/colors.rasi <<- EOF	
+	cat > $DIR/rofi/styles/colors.rasi <<- EOF	
 	* {
-		background:			${BACKGROUND};
-		foreground:			${FOREGROUND};
-		selected:			${BLUE};
-		urgent:				${RED};
-		on:					${GREEN};
-		off:				${RED};
-	}
+		BG:			${BACKGROUND}ff;
+		BGA:        ${BACKGROUND}ff;
+		FG:			${FOREGROUND}ff;
+		SEL:			${BLUE}ff;
+		BDR:        ${BLUE}ff;
+		UGT:	     ${RED}ff;
+		ON:		     ${GREEN}ff;
+		OFF:		 ${RED}ff;
+		IMG:         ${RED}ff;
+		}
 	EOF
+}
+
+dunst () {
+	sed -i -e 's/geometry = .*/geometry = "250x50-10+38"/g' $DIR/dunst/dunstrc
+	sed -i -e 's/font = .*/font = Noto Sans 11/g' $DIR/dunst/dunstrc
+	sed -i -e 's/frame_width = .*/frame_width = 1/g' $DIR/dunst/dunstrc
+
+	cat > $DIR/dunst/sid <<- EOF
+	Dark
+	EOF
+
+	sed -i '/urgency_low/Q' $DIR/dunst/dunstrc
+	cat >> $DIR/dunst/dunstrc <<- EOF
+	[urgency_low]
+	timeout = 4
+	background = "${BACKGROUND}"
+	foreground  = "${FOREGROUND}"
+	frame_color = "${FOREGROUND}"
+
+	[urgency_normal]
+	timeout = 6
+	background = "${BACKGROUND}"
+	foreground  = "${FOREGROUND}"
+	frame_color = "${FOREGROUND}"
+
+	[urgency_critical]
+	timeout = 0
+	background = "${BACKGROUND}"
+	foreground  = "${MAGENTA}"
+	frame_color = "${RED}"
+	EOF
+	pkill dunst && dunst &
 }
 
 main () {
 	getcolors
 	bspbar
+	jgmenu
 	bspterm
 	bsprofi
+	dunst
 }
 
 main
+

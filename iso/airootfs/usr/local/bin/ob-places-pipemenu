@@ -11,7 +11,7 @@
 
 readonly terminal=termite
 readonly text_editor=geany
-readonly open_folder_cmd=thunar
+readonly open_folder_cmd=pcmanfm
 readonly default_open_cmd=exo-open
 readonly recent_script=/usr/bin/al-recent-files-pipemenu
 

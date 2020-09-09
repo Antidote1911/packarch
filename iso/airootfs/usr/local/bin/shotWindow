@@ -1,2 +1,2 @@
 #!/bin/bash
-scrot -u 'scrot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f ~/Pictures ; viewnior ~/Pictures/$f'
+scrot -u 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'

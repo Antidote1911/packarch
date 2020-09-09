@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+## Author : Aditya Shakya (adi1090x)
+## Mail   : adi1090x@gmail.com
+## Github : @adi1090x
+## Reddit : @adi1090x
+
 ## Change fonts for various applications
 
 # Dir
@@ -144,14 +149,14 @@ elif [[ "$1" == "--all" ]]; then
 
 else
     menuStart
-        menuItem 'Status Bar (polybar)' "$0 --bar"
-        menuItem 'Launchers (rofi)' "$0 --rofi"
-        menuItem 'Terminal (termite)' "$0 --terminal"
-        menuItem 'Desktop (openbox)' "$0 --openbox"
-        menuItem 'Notifications (dunst)' "$0 --dunst"
-        menuItem 'Applications (gtk)' "$0 --gtk"
+        menuItem 'Polybar' "$0 --bar"
+        menuItem 'Rofi' "$0 --rofi"
+        menuItem 'Termite' "$0 --terminal"
+        menuItem 'Openbox' "$0 --openbox"
+        menuItem 'Dunst' "$0 --dunst"
+        menuItem 'GTK' "$0 --gtk"
         menuSeparator
-        menuItem 'Globally' "$0 --all"
+        menuItem 'Everywhere' "$0 --all"
     menuEnd
 fi
 

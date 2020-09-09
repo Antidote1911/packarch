@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# Mod By: Aditya Shakya // @adi1090x
 # Simple color chooser script for this installation
 
 color=$(colorpicker --short --one-shot)

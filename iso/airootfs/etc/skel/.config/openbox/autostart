@@ -1,3 +1,5 @@
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 ## Restore Wallpaper
 nitrogen --restore
 
@@ -5,32 +7,14 @@ nitrogen --restore
 xfsettingsd &
 
 ## Start Compositing Manager
-exec picom -b &
+exec picom --config $HOME/.config/openbox/picom.conf &
 
 ## Launch Polybar
-sh ~/.config/polybar/launch.sh
-
-## Launch Plank
-exec plank &
-
-## Start Music Player Daemon
-exec mpd &
+sh ~/.config/polybar/launch_for_ob.sh
 
 ## Notification Daemon
 exec dunst &
-
-## Thunar Daemon
-exec thunar --daemon &
-
-## Enable Super Keys For Menu
-ksuperkey -e 'Super_L=Alt_L|F1' &
-ksuperkey -e 'Super_R=Alt_L|F1' &
+exec mpd &
 
 ## Enable power management
-xfce4-power-manager &
-
-## Getting Started
-gs_run_once.sh
-
-## Issue Tracker (Don't Remove IT)
-issue_tracker.sh
+#xfce4-power-manager &

@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+## Author : Aditya Shakya (adi1090x)
+## Mail   : adi1090x@gmail.com
+## Github : @adi1090x
+## Reddit : @adi1090x
+
 # Simple script to create colorful short sticky notes.
 # Dep - rofi, imagemagick
 
@@ -24,7 +29,7 @@ COLOURS=($red $pink $purple $blue $cyan $teal $green $lime $amber $orange $brown
 color=${COLOURS[$NUMBER]}
 
 ## generate temp filename
-RNDNAME=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+RNDNAME=$(cat /dev/urandom | env LC_CTYPE=C tr -dc 'a-zA-Z0-9' | head -c 32 | head -n 1)
 image=/tmp/$RNDNAME.png
 
 ## convert a hex value WITHOUT the hashtag (#)

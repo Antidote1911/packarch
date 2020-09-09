@@ -3,8 +3,8 @@
  *
  * Available Color Schemes
  *
- * Berry | Cocoa | Default | Gotham | Nightly | Bluish | colors | Faded | Mask | Nordic |
+ * bluish    berry    default    nordic    nightly    gotham    mask    faded    cocoa
  *
  */
 
-@import "Default.rasi"
+@import "default.rasi"
