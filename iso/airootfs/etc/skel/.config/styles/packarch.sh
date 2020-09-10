@@ -48,7 +48,7 @@ geany () {
 gtk () {
 	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "Arc"
-	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
+	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Hybrid_Light"
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
@@ -233,12 +233,12 @@ restartwm () {
   	dunstify -r 1 -t 0 "Restarting Bspwm. Please wait..."
   	bspc wm -r
   	
-	elif [[ $WM == "openbox" ]]; then
+	elif [[ $WM == "Openbox" ]]; then
   	echo "hello openbox"
   	dunstify -r 1 -t 0 "Restarting Openbox. Please wait..."
   	openbox --reconfigure
 	#restart polybar
-  	$DIR/polybar/launch_for_ob.sh
+  	$DIR/polybar/launch.sh
   	
   	elif [[ $WM == "herbstluftwm" ]]; then
   	echo "hello Herbstluftwm"

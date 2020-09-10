@@ -2,12 +2,15 @@
 
 WM="$DESKTOP_SESSION"
 LOGOUT=""
+RESTARTWM=""
 
 if [[ $WM == "bspwm" ]]; then
 	LOGOUT="bspc quit"
+	RESTARTWM="bspc wm -r"
   	
   	elif [[ $WM == "herbstluftwm" ]]; then
   	LOGOUT="herbstclient quit"
+  	RESTARTWM="herbstclient reload"
 	fi
 
 cat <<EOF | xmenu | sh &
@@ -31,8 +34,7 @@ Apps as root
 		Pcmanfm			sudo pcmanfm
 	Leafpad					apps_as_root.sh leafpad
 	Geany					apps_as_root.sh geany
-	Ranger					apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e ranger
-	NVim					apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e nvim
+	Nvim					apps_as_root.sh 'termite -e nvim'
 Applications
 	Multimedia
 		SMplayer			smplayer
@@ -78,14 +80,16 @@ Configuration
 		Sexy				$HOME/.config/styles/sexy.sh
 	Edit config files
 		Bspwm config		termite -e 'nvim $HOME/.config/bspwm/bspwmrc' --class termite-float
-		Sxhkd keybinding		termite -e 'nvim $HOME/.config/sxhkd/sxhkdrc' --class termite-float
-		Polybar config.ini		termite -e 'nvim $HOME/.config/polybar/commons_modules.ini' --class termite-float
-		Polybar commons modules	termite -e 'nvim $HOME/.config/polybar/bspwm_modules.ini' --class termite-float
-		Polybar Bspwm modules	termite -e 'nvim $HOME/.config/polybar/bspwm_modules.ini' --class termite-float
-		Edit this menu		termite -e 'nvim $HOME/.config/xmenu/xmenu.sh' --class termite-float
-		Restart Bspwm		bspc wm -r
+		Bspwm sxhkd		termite -e 'nvim $HOME/.config/bspwm/sxhkd/sxhkdrc' --class termite-float		
+		Hlwm config		termite -e 'nvim $HOME/.config/herbstluftwm/autostart' --class termite-float
+		Hlwm sxhkd		termite -e 'nvim $HOME/.config/herbstluftwm/sxhkd/sxhkdrc' --class termite-float		
+		Commons modules	termite -e 'nvim $HOME/.config/polybar/commons_modules.ini' --class termite-float
+		Bspwm modules	termite -e 'nvim $HOME/.config/polybar/bspwm_modules.ini' --class termite-float
+		Hlwm modules	termite -e 'nvim $HOME/.config/polybar/hlwm_modules.ini' --class termite-float		
+		Edit this menu		termite -e 'nvim $HOME/.config/xmenu/xmenu.sh' --class termite-float		
+		Restart WM			$RESTARTWM
 		Reload keybinding	pkill -USR1 -x sxhkd
-		Restart Polybar				
+		Restart Polybar		$HOME/.config/polybar/launch.sh
 	Change Wallpaper			nitrogen
 	Appearance Settings		xfce4-appearance-settings
 	Lxappearance			lxappearance

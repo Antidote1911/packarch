@@ -57,7 +57,7 @@ fi
 declareDependencies picom
 
 # ------------- Set picom command options -----------------------------------
-EXECXCOMP='picom -b'
+EXECXCOMP='picom -b --config ~/.config/openbox/picom.conf'
 
 forcekill_picom() {
     killall -q picom
@@ -74,13 +74,13 @@ forcekill_picom() {
 
 
 if [[ $1 = '--edit' ]]; then # Edit picom settings
-    [[ ! -f $HOME/.config/picom.conf ]] &&
-        cp '/etc/xdg/picom.conf' "$HOME/.config/picom.conf"
+    [[ ! -f $HOME/.config/openbox/picom.conf ]] &&
+        cp '/etc/xdg/picom.conf' "$HOME/.config/openbox/picom.conf"
 
     if type geany >/dev/null;then
-        geany "$HOME/.config/picom.conf"
+        geany "$HOME/.config/openbox/picom.conf"
     else
-        termite -T 'edit picom.conf' -e nano "$HOME/.config/picom.conf"
+        termite -T 'edit picom.conf' -e nvim "$HOME/.config/openbox/picom.conf"
     fi
 elif [[ $1 = '--start' ]]; then
     if ! pidof picom > /dev/null; then
@@ -99,7 +99,7 @@ elif [[ $1 = '--restart' ]]; then
         echo "$0 --restart: picom is not running" >&2
     fi
 elif [[ $1 = '--watch' ]]; then
-    while inotifywait -e close_write "$HOME/.config/picom.conf"; do
+    while inotifywait -e close_write "$HOME/.config/openbox/picom.conf"; do
         "$0" --restart
     done
 else

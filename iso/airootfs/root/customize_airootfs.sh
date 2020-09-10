@@ -54,5 +54,5 @@ $adir/thunar-settings.desktop $adir/thunar-volman-settings.desktop $adir/yad-ico
 
 ## Other Stuff
 cp /usr/bin/networkmanager_dmenu /usr/local/bin/nmd && sed -i 's/config.ini/nmd.ini/g' /usr/local/bin/nmd
-sed -i -e 's/Inherits=.*/Inherits=Hybrid_Light,Papirus,Moka,Adwaita,hicolor/g' /usr/share/icons/Arc/index.theme
-rm -rf /usr/share/xsessions/openbox-kde.desktop /usr/share/applications/xfce4-about.desktop /usr/share/pixmaps/archlinux.png /usr/share/pixmaps/archlinux.svg
+sed -i -e 's/Inherits=.*/Inherits=Hybrid_Light,Bibata_Ice,Papirus,Moka,Adwaita,hicolor/g' /usr/share/icons/Arc/index.theme
+rm -rf /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/i3.desktop /usr/share/applications/xfce4-about.desktop /usr/share/pixmaps/archlinux.png /usr/share/pixmaps/archlinux.svg
