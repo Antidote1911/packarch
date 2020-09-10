@@ -10,7 +10,7 @@ xfsettingsd &
 exec picom --config $HOME/.config/openbox/picom.conf &
 
 ## Launch Polybar
-sh ~/.config/polybar/launch_for_ob.sh
+sh ~/.config/polybar/launch.sh
 
 ## Notification Daemon
 exec dunst &

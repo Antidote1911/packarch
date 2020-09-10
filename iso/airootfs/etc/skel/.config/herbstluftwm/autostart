@@ -90,22 +90,12 @@ hc keybind $Mod-Control-Right   resize right +$resizestep
 # TAGS or WORKSPACES
 
 #names to display in menu
-tag_names=( {1..6} )
+tag_names=( {1..10} )
 #tag_names=("Web" "Chat" "Edit" "Meld" "Vb" "Mail" "Video" "Image" "Files" "Music")
 #tag_names=("I" "II" "III" "IV" "V" "VI" "VII" "VIII" "IX" "X")
 
-#keys to press to get to the tags
-#Qwerty
-tag_keys=( {1..6} 0 )
-
-#Belgian azerty
-#tag_keys=( ampersand eacute quotedbl apostrophe parenleft section egrave exclam ccedilla agrave )
-
 #French azerty
-#tag_keys=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla agrave )
-
-#Discord tip for some keyboards
-#tag_keys=( "1" "2" "3" "4" "5" "6" "7" "8" "9" "0" )
+tag_keys=( ampersand eacute quotedbl apostrophe parenleft minus egrave underscore ccedilla agrave )
 
 hc rename default "${tag_names[0]}" || true
 for i in ${!tag_names[@]} ; do
@@ -276,8 +266,7 @@ hc pad 0 30 0 30 0
 sxhkd -c ~/.config/herbstluftwm/sxhkd/sxhkdrc &
 
 #launching polybar
-killall polybar &
-~/.config/polybar/launch_for_hlwm.sh &
+~/.config/polybar/launch.sh &
 
 #change your keyboard if you need it
 #setxkbmap -layout fr

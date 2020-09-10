@@ -32,4 +32,4 @@ pkill -9 -f bspfloat &
 run bspfloat &
 
 bspcomp
-sh ~/.config/polybar/launch_for_bspwm.sh &
+sh ~/.config/polybar/launch.sh &
