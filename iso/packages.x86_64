@@ -173,8 +173,9 @@ inetutils
 jq
 keepassxc
 leafpad
+lightdm
+lightdm-gtk-greeter
 lxappearance
-lxdm-gtk3
 make
 mpc
 mpd
@@ -182,7 +183,9 @@ mplayer
 ncdu
 ncmpcpp
 nitrogen
+numlockx
 noto-fonts
+neofetch
 neovim
 os-prober
 p7zip
@@ -192,6 +195,7 @@ picom
 pkg-config
 plank
 polkit
+polkit-gnome
 pulseaudio
 pulseaudio-alsa
 pulseaudio-equalizer-ladspa
@@ -204,10 +208,6 @@ smplayer-skins
 smplayer-themes
 termite
 terminus-font-otb
-thunar
-thunar-archive-plugin
-thunar-media-tags-plugin
-thunar-volman
 ttf-dejavu
 tumbler
 udisks2
@@ -219,9 +219,8 @@ wget
 xarchiver
 xclip
 xdg-user-dirs
-xfce4-power-manager
-xfce4-settings
 xmlstarlet
+xorg-xsetroot
 yad
 zip
 
@@ -238,9 +237,10 @@ ac-get-started
 ac-grid-icon-theme
 ac-gtk-themepack
 ac-hybrid-icon-theme
-ac-lxdm-theme
+#ac-lxdm-theme
 ac-pixmaps
 ac-wallpapers
+shell-color-scripts
 
 ##-------- AUR Packages --------##
 bibata-cursor-theme
@@ -248,15 +248,13 @@ betterlockscreen
 cava
 colorpicker
 font-manager
-grub-silent
 ksuperkey
+python-pyparted
 mintstick-git
 networkmanager-dmenu-git
-numix-folders-git
-numix-icon-theme-git
+#numix-icon-theme-git
 obmenu-generator
 perl-linux-desktopfiles
-plymouth
 polybar
 rofi-git
 xtitle-git

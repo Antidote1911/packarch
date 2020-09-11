@@ -44,15 +44,16 @@ EOL
 ## Hide Unnecessary Apps
 adir="/usr/share/applications"
 sed -i '$s/$/\nNoDisplay=true/' $adir/avahi-discover.desktop $adir/bssh.desktop $adir/bvnc.desktop $adir/compton.desktop $adir/echomixer.desktop \
-$adir/envy24control.desktop $adir/exo-mail-reader.desktop \
-$adir/exo-preferred-applications.desktop $adir/feh.desktop $adir/gparted.desktop \
+$adir/envy24control.desktop \
+$adir/feh.desktop $adir/gparted.desktop \
 $adir/hdajackretask.desktop $adir/hdspconf.desktop $adir/hdspmixer.desktop $adir/hwmixvolume.desktop $adir/lftp.desktop \
 $adir/libfm-pref-apps.desktop $adir/lxshortcut.desktop $adir/lstopo.desktop $adir/mimeinfo.cache \
 $adir/networkmanager_dmenu.desktop $adir/nm-connection-editor.desktop $adir/pcmanfm-desktop-pref.desktop \
-$adir/qv4l2.desktop $adir/qvidcap.desktop $adir/stoken-gui.desktop $adir/stoken-gui-small.desktop $adir/thunar-bulk-rename.desktop \
-$adir/thunar-settings.desktop $adir/thunar-volman-settings.desktop $adir/yad-icon-browser.desktop
+$adir/qv4l2.desktop $adir/qvidcap.desktop $adir/stoken-gui.desktop $adir/stoken-gui-small.desktop \
+$adir/yad-icon-browser.desktop
 
 ## Other Stuff
 cp /usr/bin/networkmanager_dmenu /usr/local/bin/nmd && sed -i 's/config.ini/nmd.ini/g' /usr/local/bin/nmd
-sed -i -e 's/Inherits=.*/Inherits=Hybrid_Light,Bibata_Ice,Papirus,Moka,Adwaita,hicolor/g' /usr/share/icons/Arc/index.theme
 rm -rf /usr/share/xsessions/openbox-kde.desktop /usr/share/xsessions/i3.desktop /usr/share/applications/xfce4-about.desktop /usr/share/pixmaps/archlinux.png /usr/share/pixmaps/archlinux.svg
+
+systemctl enable lightdm.service

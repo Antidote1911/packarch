@@ -1,5 +1,14 @@
 #!/bin/bash
 
+### PATH
+if [ -d "$HOME/.bin" ] ;
+  then PATH="$HOME/.bin:$PATH"
+fi
+
+if [ -d "$HOME/.local/bin" ] ;
+  then PATH="$HOME/.local/bin:$PATH"
+fi
+
 WM="$DESKTOP_SESSION"
 LOGOUT=""
 RESTARTWM=""
@@ -11,12 +20,16 @@ if [[ $WM == "bspwm" ]]; then
   	elif [[ $WM == "herbstluftwm" ]]; then
   	LOGOUT="herbstclient quit"
   	RESTARTWM="herbstclient reload"
+  	
+  	elif [[ $WM == "openbox" ]]; then
+  	LOGOUT="openbox --exit"
+  	RESTARTWM="openbox --restart"
 	fi
 
 cat <<EOF | xmenu | sh &
 Internet					firefox
 File Manager
-	Pcmanfm				pcmanfm
+	Pcmanfm					pcmanfm
 	Ranger					termite -e ranger
 	Ranger Float				termite --class termite-float -e ranger
 Terminal
@@ -31,7 +44,7 @@ Apps as root
 	File Manager
 		Ranger				apps_as_root.sh termite -c /root/.config/termite/config -e ranger
 		Ranger Float			apps_as_root.sh termite --class termite-float -c /root/.config/termite/config -e ranger
-		Pcmanfm			sudo pcmanfm
+		Pcmanfm				apps_as_root.sh pcmanfm
 	Leafpad					apps_as_root.sh leafpad
 	Geany					apps_as_root.sh geany
 	Nvim					apps_as_root.sh 'termite -e nvim'
@@ -56,7 +69,7 @@ Applications
 		Virtualbox			virtualbox
 		KeepassXC			keepassxc
 		Veracrypt			veracrypt
-		Fonts Manager		font-manager
+		Fonts Manager			font-manager
 		Bootable Usb			mintstick -m iso
 		Format Usb			mintstick -m format
 		Infos System			hardinfo
@@ -65,9 +78,10 @@ Applications
 		Pipes 1				termite -e pipes-1
 		Pipes 2				termite -e pipes-2
 		Pipes 3				termite -e pipes-3
-		Panes				termite -e panes --hold
-		Color Bars			termite -e colorbar-full --hold
-		Color Blocks			termite -e colorblocks --hold
+		Invaders			termite -e invaders --hold
+		Color Bars			termite -e color0 --hold
+		Pacman				termite -e pacman --hold
+		Monsters			termite -e monster --hold
 Configuration
 	Change theme
 		Archlinux			$HOME/.config/styles/archlinux.sh
@@ -91,10 +105,7 @@ Configuration
 		Reload keybinding	pkill -USR1 -x sxhkd
 		Restart Polybar		$HOME/.config/polybar/launch.sh
 	Change Wallpaper			nitrogen
-	Appearance Settings		xfce4-appearance-settings
 	Lxappearance			lxappearance
-	Power Settings			xfce4-power-manager-settings
-	Settings Manager			xfce4-settings-manager
 	Audio Settings			pavucontrol
 Screenshot
 	Screenshot Now			shotnow

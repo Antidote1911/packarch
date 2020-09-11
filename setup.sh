@@ -2,9 +2,6 @@
 
 ## Pre-build script for Packarch OS.
 
-# Clear Pacman Cache
-sudo pacman -Scc
-
 ## ANSI Colors (FG & BG)
 RED="$(printf '\033[31m')"  GREEN="$(printf '\033[32m')"  ORANGE="$(printf '\033[33m')"  BLUE="$(printf '\033[34m')"
 MAGENTA="$(printf '\033[35m')"  CYAN="$(printf '\033[36m')"  WHITE="$(printf '\033[37m')" BLACK="$(printf '\033[30m')"
@@ -70,11 +67,9 @@ set_extra () {
 	# Setup OMZ
 	{ echo ${ORANGE}"[*] ${BLUE}Setting Up Oh-My-Zsh - ${CYAN}"; echo; }
 	cd $DIR/iso/airootfs/etc/skel && git clone https://github.com/robbyrussell/oh-my-zsh.git --depth 1 .oh-my-zsh
-	cp $DIR/iso/airootfs/etc/skel/.oh-my-zsh/templates/zshrc.zsh-template $DIR/iso/airootfs/etc/skel/.zshrc
-	sed -i -e 's/ZSH_THEME=.*/ZSH_THEME="packarch"/g' $DIR/iso/airootfs/etc/skel/.zshrc
-	# Packarch ZSH theme
-	cat > $DIR/iso/airootfs/etc/skel/.oh-my-zsh/custom/themes/packarch.zsh-theme <<- _EOF_
-		# Default OMZ theme for Packarch
+	# Archcraft ZSH theme
+	cat > $DIR/iso/airootfs/etc/skel/.oh-my-zsh/custom/themes/archcraft.zsh-theme <<- _EOF_
+		# Default OMZ theme for Archcraft
 
 		if [[ "\$USER" == "root" ]]; then
 		  PROMPT="%(?:%{\$fg_bold[red]%}%{\$fg_bold[yellow]%}%{\$fg_bold[red]%} :%{\$fg_bold[red]%} )"
@@ -88,27 +83,6 @@ set_extra () {
 		ZSH_THEME_GIT_PROMPT_SUFFIX="%{\$reset_color%} "
 		ZSH_THEME_GIT_PROMPT_DIRTY="%{\$fg[blue]%}) %{\$fg[yellow]%}✗"
 		ZSH_THEME_GIT_PROMPT_CLEAN="%{\$fg[blue]%})"
-	_EOF_
-	# Append some aliases
-	cat >> $DIR/iso/airootfs/etc/skel/.zshrc <<- _EOF_
-		# omz
-		alias zshconfig="geany ~/.zshrc"
-		alias ohmyzsh="thunar ~/.oh-my-zsh"
-
-		# ls
-		alias l='ls -lh'
-		alias ll='ls -lah'
-		alias la='ls -A'
-		alias lm='ls -m'
-		alias lr='ls -R'
-		alias lg='ls -l --group-directories-first'
-
-		# git
-		alias gcl='git clone --depth 1'
-		alias gi='git init'
-		alias ga='git add'
-		alias gc='git commit -m'
-		alias gp='git push origin master'
 	_EOF_
 	{ echo; echo ${ORANGE}"[*] ${GREEN}Done. OMZ added successfully."; echo; }
 

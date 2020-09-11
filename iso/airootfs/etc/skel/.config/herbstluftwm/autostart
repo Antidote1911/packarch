@@ -278,8 +278,6 @@ picom  --config $HOME/.config/herbstluftwm/picom.conf &
 
 xsetroot -solid '#000000'
 xsetroot -cursor_name left_ptr &
-xfsettingsd &
-xfce4-power-manager &
 numlockx on &
 nitrogen --restore &
 dunst &
