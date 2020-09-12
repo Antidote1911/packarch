@@ -1532,13 +1532,12 @@ install_root(){
   [[ -e /tmp/01-keyboard-layout.conf ]] && cp -f /tmp/01-keyboard-layout.conf ${MOUNTPOINT}/etc/X11/xorg.conf.d/$(ls ${MOUNTPOINT}/etc/X11/xorg.conf.d/ | grep "keyboard") 2>>/tmp/.errlog
   
   # Display Manager
-  arch_chroot "systemctl enable lxdm.service" 2>>/tmp/.errlog
-  cp -f /inst/lxdm.conf ${MOUNTPOINT}/etc/lxdm/lxdm.conf 2>>/tmp/.errlog
-  [[ -d ${MOUNTPOINT}/inst ]] && rm -R ${MOUNTPOINT}/inst &> /dev/null 2>>/tmp/.errlog
+  arch_chroot "systemctl enable lightdm.service" 2>>/tmp/.errlog
   check_for_error
   
   # Virtualbox Guest
   [[ $(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//' | grep -i "virtualbox") != "" ]] && arch_chroot "systemctl enable vboxservice"
+  [[ $(lspci | grep -i "vga" | sed 's/.*://' | sed 's/(.*//' | sed 's/^[ \t]*//' | grep -i "VMware") != "" ]] && arch_chroot "systemctl enable  vmtoolsd"
   
 }
 

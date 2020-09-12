@@ -111,11 +111,11 @@ xorg-xrdb
 ##-------- Drivers (Intel/AMD/Nvidia) --------##
 xf86-video-intel
 xf86-video-vmware
-xf86-video-amdgpu
 xf86-video-vesa
 xf86-video-amdgpu
 xf86-video-nouveau
 xf86-input-vmmouse
+xf86-video-fbdev
 
 ##-------- Networking --------##
 networkmanager
@@ -129,13 +129,12 @@ adapta-gtk-theme
 ##-------- Bspwm --------##
 bspwm
 sxhkd
-arc-gtk-theme
-arc-icon-theme
 
 ##-------- Herbstluftwm --------##
 herbstluftwm
 
 ##-------- Programs --------##
+grub
 alsa-plugins
 alsa-tools
 alsa-utils
@@ -166,6 +165,8 @@ gst-plugins-good
 gst-plugins-ugly
 gtk-engine-murrine
 gvfs
+gvfs-nfs
+gvfs-smb
 gvfs-mtp
 htop
 imagemagick
@@ -188,7 +189,6 @@ noto-fonts
 neofetch
 neovim
 os-prober
-p7zip
 patch
 pcmanfm
 picom
@@ -199,6 +199,7 @@ polkit-gnome
 pulseaudio
 pulseaudio-alsa
 pulseaudio-equalizer-ladspa
+python-pyxdg
 pavucontrol
 pv
 ranger
@@ -211,18 +212,21 @@ terminus-font-otb
 ttf-dejavu
 tumbler
 udisks2
-unrar
-unzip
 veracrypt
 viewnior
 wget
-xarchiver
 xclip
 xdg-user-dirs
 xmlstarlet
 xorg-xsetroot
 yad
+
+##-------- Archives --------##
+xarchiver
 zip
+unrar
+unzip
+p7zip
 
 ##-------- Virtual Box --------##
 virtualbox-guest-dkms
@@ -252,7 +256,7 @@ ksuperkey
 python-pyparted
 mintstick-git
 networkmanager-dmenu-git
-#numix-icon-theme-git
+numix-icon-theme-git
 obmenu-generator
 perl-linux-desktopfiles
 polybar
