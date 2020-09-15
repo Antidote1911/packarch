@@ -1,7 +1,0 @@
-[Desktop Entry]
-Name=Install Packarch
-Comment=Packarch Installer (abif)
-Exec=/usr/local/bin/apps_as_root.sh "termite -t Packarch_Installer -c /abif-master/termite -e /abif-master/abif"
-Icon=distributor-logo-packarch
-Type=Application
-Categories=System;Settings;
