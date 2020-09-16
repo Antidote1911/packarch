@@ -46,9 +46,9 @@ geany () {
 }
 
 gtk () {
-	xfconf-query -c xsettings -p /Net/ThemeName -s "Lumiere"
-	xfconf-query -c xsettings -p /Net/IconThemeName -s "Arc"
-	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Hybrid_Light"
+	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
+	xfconf-query -c xsettings -p /Net/IconThemeName -s "Sardi-Flat"
+	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
@@ -105,8 +105,6 @@ obconf () {
 }
 
 divers () {
-	# dunstify -r 1 -t 0 "Generating new icons cache for Archlinux theme. Please wait..."
-	# cd $DIR/numix-config && echo -e "2\ncustom\n7AABC9\n415B6B\n415B6B\n" | sudo $DIR/numix-config/numix-folders -t
 	dunstify -r 1 -t 0 "Generating image cache for betterlockscreen. Please wait..."
 	betterlockscreen -u /usr/share/backgrounds/archlinux.jpg
 	nitrogen --set-zoom-fill --save /usr/share/backgrounds/archlinux.jpg

@@ -1,25 +1,24 @@
 ! -----------------------------------------------------------------------------
-! Coffee color scheme
+! Packarch color scheme
 ! -----------------------------------------------------------------------------
 
-*foreground:        #c0b18b
-*background:        #2f343f
+*foreground:        #FFF2B1
+*background:        #2F343F
 
 ! Colors 0-15.
-*color0:  #e5e5e5
-*color1:  #d17b49
-*color2:  #7b8748
-*color3:  #af865a
-*color4:  #535c5c
-*color5:  #775759
-*color6:  #946F58
-*color7:  #c0b18b
-*color8:  #e5e5e5
-*color9:  #d17b49
-*color10:  #7b8748
-*color11:  #af865a
-*color12:  #535c5c
-*color13:  #775759
-*color14:  #946F58
-*color15:  #c0b18b
- 
+*color0:  #FF5F00
+*color1:  #e92f2f
+*color2:  #0ed839
+*color3:  #dddd13
+*color4:  #3b48e3
+*color5:  #f996e2
+*color6:  #23edda
+*color7:  #ababab
+*color8:  #FF5F00
+*color9:  #e92f2f
+*color10:  #0ed839
+*color11:  #dddd13
+*color12:  #3b48e3
+*color13:  #f996e2
+*color14:  #23edda
+*color15:  #ababab

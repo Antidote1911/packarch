@@ -34,7 +34,7 @@ xmenu () {
 	sed -i -e 's/background_color=.*/background_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/foreground_color=.*/foreground_color="'${FOREGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/selbackground_color=.*/selbackground_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
-	sed -i -e 's/selforeground_color=.*/selforeground_color="'${MAGENTA}'",/' $DIR/xmenu/config.h
+	sed -i -e 's/selforeground_color=.*/selforeground_color="'${ALTYELLOW}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/separator_color=.*/separator_color="'${BLACK}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/border_color=.*/border_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h	
 	cd $DIR/xmenu/ && make && sudo make install
@@ -47,8 +47,8 @@ geany () {
 
 gtk () {
 	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
-	xfconf-query -c xsettings -p /Net/IconThemeName -s "Arc"
-	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Hybrid_Light"
+	xfconf-query -c xsettings -p /Net/IconThemeName -s "Sardi-Flat-Colora-Deep-Sky"
+	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
@@ -105,8 +105,6 @@ obconf () {
 }
 
 divers () {
-	# dunstify -r 1 -t 0 "Generating new icons cache for Packarch theme. Please wait..."
-	# cd $DIR/numix-config && echo -e "2\ncustom\n7AABC9\n415B6B\n415B6B\n" | sudo $DIR/numix-config/numix-folders -t
 	dunstify -r 1 -t 0 "Generating image cache for betterlockscreen. Please wait..."
 	betterlockscreen -u /usr/share/backgrounds/packarch.jpg
 	nitrogen --set-zoom-fill --save /usr/share/backgrounds/packarch.jpg

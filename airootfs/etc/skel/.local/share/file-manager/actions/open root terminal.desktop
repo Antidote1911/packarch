@@ -10,4 +10,4 @@ Name[fr_FR]=terminalroot
 [X-Action-Profile on_folder]
 Name=Terminal Root
 MimeTypes=inode/directory;
-Exec=apps_as_root.sh termite
+Exec=sudo termite

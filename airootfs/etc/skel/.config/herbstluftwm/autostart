@@ -275,7 +275,7 @@ sxhkd -c ~/.config/herbstluftwm/sxhkd/sxhkdrc &
 pkill -u $USER '^picom$'
 picom  --config $HOME/.config/herbstluftwm/picom.conf &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
+xfsettingsd &
 xsetroot -solid '#000000'
 xsetroot -cursor_name left_ptr &
 numlockx on &

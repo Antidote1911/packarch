@@ -19,7 +19,7 @@ export PATH="${PATH}:$HOME/.config/bspwm/bin"
 # run xfce4-power-manager &
 # run thunar --daemon &
 # run pamac-tray &
-# run xfsettingsd &
+run xfsettingsd &
 
 xsetroot -cursor_name left_ptr &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

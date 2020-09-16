@@ -2,23 +2,23 @@
 ! Packarch color scheme
 ! -----------------------------------------------------------------------------
 
-*foreground:        #c8c7c6
-*background:        #26211d
+*foreground:        #FFF2B1
+*background:        #2F343F
 
 ! Colors 0-15.
-*color0:  #26211d
-*color1:  #c0a695
-*color2:  #71a8c7
-*color3:  #3378bd
-*color4:  #0660c4
-*color5:  #a4afbe
-*color6:  #7a8baa
-*color7:  #c8c7c6
-*color8:  #5c5855
-*color9:  #c0a695
-*color10:  #71a8c7
-*color11:  #3378bd
-*color12:  #0660c4
-*color13:  #a4afbe
-*color14:  #7a8baa
-*color15:  #c8c7c6
+*color0:  #FF5F00
+*color1:  #e92f2f
+*color2:  #0ed839
+*color3:  #dddd13
+*color4:  #3b48e3
+*color5:  #f996e2
+*color6:  #23edda
+*color7:  #ababab
+*color8:  #FF5F00
+*color9:  #e92f2f
+*color10:  #0ed839
+*color11:  #dddd13
+*color12:  #3b48e3
+*color13:  #f996e2
+*color14:  #23edda
+*color15:  #ababab

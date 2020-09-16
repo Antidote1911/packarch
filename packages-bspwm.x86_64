@@ -8,6 +8,8 @@ adapta-gtk-theme
 alsa-firmware
 alsa-tools
 alsa-utils
+arch-install-scripts
+archiso
 atril
 base-devel
 betterlockscreen
@@ -20,6 +22,7 @@ cava
 colorpicker
 dunst
 feh
+fetchmirrors
 ffmpegthumbnailer
 font-manager
 geany
@@ -79,7 +82,6 @@ nitrogen
 nm-connection-editor
 noto-fonts
 nss-mdns
-numix-icon-theme-git
 numlockx
 neovim
 obconf
@@ -104,10 +106,15 @@ python-pyxdg
 ranger
 rofi
 samba
+sardi-icons
+sardi-mint-y-icons-git
+sardi-flat-colora-variations-icons-git
+sardi-mono-numix-colora-variations-icons-git
 scrot
 smplayer
 smplayer-skins
 smplayer-themes
+squashfs-tools
 sxhkd
 system-config-printer
 terminus-font-otb
@@ -142,6 +149,7 @@ xf86-video-nouveau
 xf86-video-vesa
 xf86-video-vesa
 xf86-video-vmware
+xfce4-settings
 xmlstarlet
 xorg-fonts-misc
 xorg-mkfontscale

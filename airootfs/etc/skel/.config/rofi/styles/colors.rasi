@@ -1,13 +1,13 @@
 /* Color-Scheme */
 
 * {
-BG:    #2f343fff;
-BGA:   #946F58ff;
-FG:    #c0b18bff;
-BDR:   #946F58ff;
-SEL:   #946F58ff;
-UGT:   #775759ff;
-IMG:   #775759ff;
-ON:    #7b8748ff;
-OFF:   #775759ff;
+BG:    #2F343Fff;
+BGA:   #23eddaff;
+FG:    #FFF2B1ff;
+BDR:   #23eddaff;
+SEL:   #23eddaff;
+UGT:   #f996e2ff;
+IMG:   #f996e2ff;
+ON:    #0ed839ff;
+OFF:   #f996e2ff;
 }

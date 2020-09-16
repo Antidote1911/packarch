@@ -3,12 +3,12 @@ static struct Config config = {
 	.font = "Noto Sans:size=11,DejaVuSansMono:size=10",
 
 	/* colors */
-	.background_color="#2f343f",
-	.foreground_color="#c0b18b",
-	.selbackground_color="#2f343f",
-	.selforeground_color="#775759",
-	.separator_color="#e5e5e5",
-	.border_color="#2f343f",
+	.background_color="#26211d",
+	.foreground_color="#c8c7c6",
+	.selbackground_color="#26211d",
+	.selforeground_color="#a4afbe",
+	.separator_color="#26211d",
+	.border_color="#26211d",
 
 	/* sizes in pixels */
 	.width_pixels = 130,        /* minimum width of a menu */

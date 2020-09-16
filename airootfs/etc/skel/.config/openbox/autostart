@@ -11,5 +11,5 @@ sh ~/.config/polybar/launch.sh
 
 ## Notification Daemon
 exec dunst &
-
+exec mpd &
 
