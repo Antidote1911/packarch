@@ -43,7 +43,6 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 hardinfo
-herbstluftwm
 htop
 imagemagick
 intel-media-driver
@@ -106,6 +105,7 @@ sardi-flat-mint-y-icons-git
 sardi-flat-colora-variations-icons-git
 sardi-flat-mixing-icons-git
 scrot
+smplayer
 squashfs-tools
 sxhkd
 system-config-printer
