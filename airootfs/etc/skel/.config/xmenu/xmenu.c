@@ -361,17 +361,17 @@ initresources(void)
 		if ((n = strtol(xval.addr, NULL, 10)) > 0)
 			config.gap_pixels = n;
 	if (XrmGetResource(xdb, "xmenu.background", "*", &type, &xval) == True)
-		config.background_color = strdup(xval.addr);
+		//config.background_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.foreground", "*", &type, &xval) == True)
-		config.foreground_color = strdup(xval.addr);
+		//config.foreground_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.selbackground", "*", &type, &xval) == True)
-		config.selbackground_color = strdup(xval.addr);
+		//config.selbackground_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.selforeground", "*", &type, &xval) == True)
-		config.selforeground_color = strdup(xval.addr);
+		//config.selforeground_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.separator", "*", &type, &xval) == True)
-		config.separator_color = strdup(xval.addr);
+		//config.separator_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.border", "*", &type, &xval) == True)
-		config.border_color = strdup(xval.addr);
+		//config.border_color = strdup(xval.addr);
 	if (XrmGetResource(xdb, "xmenu.font", "*", &type, &xval) == True)
 		config.font = strdup(xval.addr);
 

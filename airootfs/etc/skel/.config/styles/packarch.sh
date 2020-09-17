@@ -34,10 +34,11 @@ xmenu () {
 	sed -i -e 's/background_color=.*/background_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/foreground_color=.*/foreground_color="'${FOREGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/selbackground_color=.*/selbackground_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
-	sed -i -e 's/selforeground_color=.*/selforeground_color="'${ALTYELLOW}'",/' $DIR/xmenu/config.h
-	sed -i -e 's/separator_color=.*/separator_color="'${BLACK}'",/' $DIR/xmenu/config.h
+	sed -i -e 's/selforeground_color=.*/selforeground_color="'${CYAN}'",/' $DIR/xmenu/config.h
+	sed -i -e 's/separator_color=.*/separator_color="'${RED}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/border_color=.*/border_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h	
-	cd $DIR/xmenu/ && make && sudo make install
+	cd $DIR/xmenu/ && make
+	sudo cp $DIR/xmenu/xmenu /usr/local/bin/xmenu
 }
 
 geany () {
@@ -46,10 +47,10 @@ geany () {
 }
 
 gtk () {
-	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
+	xfconf-query -c xsettings -p /Net/ThemeName -s "Adapta-Nokto-Eta"
 	xfconf-query -c xsettings -p /Net/IconThemeName -s "Sardi-Flat-Colora-Deep-Sky"
 	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
-	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
+	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 11"
 }
 
 obconf () {
@@ -142,7 +143,7 @@ bspterm () {
 	[colors]
 
 	foreground=${FOREGROUND}
-	background=${BACKGROUND}
+	background=rgba(41, 53, 59, 0.8)
 	cursor=${CURSOR}
 
 	color0=${BLACK}

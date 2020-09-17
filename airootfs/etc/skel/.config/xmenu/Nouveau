@@ -1,0 +1,1 @@
+Install Packarch				sudo termite -t Packarch_Installer -c /installer/termite -e /installer/install_packarch.sh

@@ -37,7 +37,8 @@ xmenu () {
 	sed -i -e 's/selforeground_color=.*/selforeground_color="'${YELLOW}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/separator_color=.*/separator_color="'${BLACK}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/border_color=.*/border_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h	
-	cd $DIR/xmenu/ && make && sudo make install
+	cd $DIR/xmenu/ && make
+	sudo cp $DIR/xmenu/xmenu /usr/local/bin/xmenu
 }
 
 geany () {
@@ -142,7 +143,7 @@ bspterm () {
 	[colors]
 
 	foreground=${FOREGROUND}
-	background=${BACKGROUND}
+	background=rgba(47, 52, 63, 0.8)
 	cursor=${CURSOR}
 
 	color0=${BLACK}

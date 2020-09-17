@@ -281,6 +281,7 @@ xsetroot -cursor_name left_ptr &
 numlockx on &
 nitrogen --restore &
 dunst &
+
 # caffeine &
 # vivaldi-stable &
 # firefox &

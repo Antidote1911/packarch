@@ -37,7 +37,8 @@ xmenu () {
 	sed -i -e 's/selforeground_color=.*/selforeground_color="'${MAGENTA}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/separator_color=.*/separator_color="'${BLACK}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/border_color=.*/border_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h	
-	cd $DIR/xmenu/ && make && sudo make install
+	cd $DIR/xmenu/ && make
+	sudo cp $DIR/xmenu/xmenu /usr/local/bin/xmenu
 }
 
 geany () {

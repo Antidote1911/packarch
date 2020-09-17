@@ -19,6 +19,7 @@ export PATH="${PATH}:$HOME/.config/bspwm/bin"
 # run xfce4-power-manager &
 # run thunar --daemon &
 # run pamac-tray &
+# run xsettingsd &
 run xfsettingsd &
 
 xsetroot -cursor_name left_ptr &

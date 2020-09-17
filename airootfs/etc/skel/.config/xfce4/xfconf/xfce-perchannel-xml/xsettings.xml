@@ -2,7 +2,7 @@
 
 <channel name="xsettings" version="1.0">
   <property name="Net" type="empty">
-    <property name="ThemeName" type="string" value="Fantome"/>
+    <property name="ThemeName" type="string" value="Adapta-Nokto-Eta"/>
     <property name="IconThemeName" type="string" value="Sardi-Flat-Colora-Deep-Sky"/>
     <property name="DoubleClickTime" type="empty"/>
     <property name="DoubleClickDistance" type="empty"/>
@@ -23,7 +23,7 @@
   <property name="Gtk" type="empty">
     <property name="CanChangeAccels" type="bool" value="true"/>
     <property name="ColorPalette" type="empty"/>
-    <property name="FontName" type="string" value="Noto Sans 10"/>
+    <property name="FontName" type="string" value="Noto Sans 11"/>
     <property name="MonospaceFontName" type="string" value="Source Code Pro 10"/>
     <property name="IconSizes" type="empty"/>
     <property name="KeyThemeName" type="empty"/>

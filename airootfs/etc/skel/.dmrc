@@ -1,6 +1,5 @@
 [Desktop]
 ## Set Default Session
 Language=fr_FR.utf8
-Session=openbox
-#Session=bspwm
+Session=bspwm
 #Session=herbstluftwm
