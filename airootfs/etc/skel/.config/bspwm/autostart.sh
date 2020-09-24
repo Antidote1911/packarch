@@ -27,10 +27,9 @@ xsetroot -cursor_name left_ptr &
 run sxhkd -c ~/.config/bspwm/sxhkd/sxhkdrc &
 nitrogen --restore &
 run dunst &
-run mpd &
 
 pkill -9 -f bspfloat &
 run bspfloat &
 
-bspcomp
+# bspcomp
 sh ~/.config/polybar/launch.sh &
