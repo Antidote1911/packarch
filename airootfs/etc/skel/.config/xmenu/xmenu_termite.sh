@@ -28,8 +28,6 @@ if [[ $WM == "bspwm" ]]; then
 
 cat <<EOF | xmenu | sh &
 Internet						(firefox &> /dev/null &)
-Gparted						(gparted &> /dev/null &)
-Install Packarch			sudo termite -t Packarch_Installer -c /installer/termite -e /installer/install_packarch.sh
 File Manager
 	Pcmanfm				(pcmanfm &> /dev/null &)
 	Ranger					termite -e ranger
@@ -53,19 +51,31 @@ Apps as root
 Applications
 	Multimedia
 		SMplayer			(smplayer &> /dev/null &)
+		Spotify				(spotify &> /dev/null &)
+		Mp3 Player			termite -e ncmpcpp
+		Visualizer			termite -e cava
+	Graphism
+		Gimp				(gimp &> /dev/null &)
+		Gcolor3				(gcolor3 &> /dev/null &)
+		Color Picker			color_picker
+	Develop
+		Atom				(atom &> /dev/null &)
+		QtCreator			(qtcreator &> /dev/null &)
 	Utils
 		Htop				termite -e htop
 		Geany				(geany &> /dev/null &)
 		Leafpad				(leafpad &> /dev/null &)
+		Vmware				(vmware &> /dev/null &)
+		Virtualbox			(virtualbox &> /dev/null &)
 		KeepassXC			(keepassxc &> /dev/null &)
 		Veracrypt			(veracrypt &> /dev/null &)
+		Fonts Manager		(font-manager &> /dev/null &)
 		Bootable Usb			(mintstick -m iso &> /dev/null &)
 		Format Usb			(mintstick -m format &> /dev/null &)
 		Infos System			(hardinfo &> /dev/null &)
 		Gparted				(gparted &> /dev/null &)
 	Funny Apps
 		Neofetch			termite -e "$SHELL -c 'neofetch && $SHELL'" &
-		Neofetch Cat		termite -e "$SHELL -c 'neofetch --source $HOME/.config/neofetch/asciicat && $SHELL'" &
 		Pipes 1				termite -e pipes-1.sh
 		Pipes 2				termite -e pipes-2.sh
 		Pipes 3				termite -e pipes-3.sh
@@ -76,7 +86,6 @@ Applications
 Configuration
 	Change theme
 		Archlinux			$HOME/.config/styles/archlinux.sh &> /dev/null &
-		Aurore				$HOME/.config/styles/aurore.sh &> /dev/null &
 		Coffee				$HOME/.config/styles/coffee.sh &> /dev/null &
 		Cyberpunk			$HOME/.config/styles/cyberpunk.sh &> /dev/null &
 		Forest				$HOME/.config/styles/forest.sh &> /dev/null &
@@ -127,6 +136,12 @@ Places
 	Images					(pcmanfm -n $(xdg-user-dir PICTURES) &> /dev/null &)
 	Documents				(pcmanfm -n $(xdg-user-dir DOCUMENTS) &> /dev/null &)
 	Config					(pcmanfm -n $HOME/.config &> /dev/null &)
+	Syno Ds918
+		Syno Partage			(pcmanfm -n /mnt/Partage/ &> /dev/null &)
+		Syno Films			(pcmanfm -n /mnt/Partage/Films/ &> /dev/null &)
+		Syno Torrents		(pcmanfm -n /mnt/Partage/torrents/ &> /dev/null &)
+		Syno Musiques		(pcmanfm -n /mnt/Musiques/ &> /dev/null &)
+		Syno Photos			(pcmanfm -n /mnt/Photos/&> /dev/null &)
 
 Lock Screen					betterlockscreen -l blur
 Power

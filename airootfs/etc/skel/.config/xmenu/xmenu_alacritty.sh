@@ -28,55 +28,64 @@ if [[ $WM == "bspwm" ]]; then
 
 cat <<EOF | xmenu | sh &
 Internet						(firefox &> /dev/null &)
-Gparted						(gparted &> /dev/null &)
-Install Packarch			sudo termite -t Packarch_Installer -c /installer/termite -e /installer/install_packarch.sh
 File Manager
 	Pcmanfm				(pcmanfm &> /dev/null &)
-	Ranger					termite -e ranger
-	Ranger Float				termite --class termite-float -e ranger
+	Ranger					alacritty -e ranger
+	Ranger Float				alacritty --class alacritty-float,alacritty-float --config-file $HOME/.config/alacritty/alacritty.yml -e ranger
 Terminal
-	Termite					termite
-	Termite Float				termite --class termite-float
-Htop						termite -e htop
+	alacritty					alacritty
+	alacritty Float				alacritty --class alacritty-float,alacritty-float --config-file $HOME/.config/alacritty/alacritty.yml
+Htop						alacritty -e htop
 
 Apps as root
 	Terminal
-		Termite				sudo termite -c /root/.config/termite/config
-		Termite Float			sudo termite --class termite-float -c /root/.config/termite/config
+		alacritty				sudo alacritty --config-file /root/.config/alacritty/alacritty.yml
+		alacritty Float			sudo alacritty --class alacritty-float,alacritty-float --config-file /root/.config/alacritty/alacritty.yml
 	File Manager
-		Ranger				sudo termite -c /root/.config/termite/config -e ranger
-		Ranger Float			sudo termite --class termite-float -c /root/.config/termite/config -e ranger
+		Ranger				sudo alacritty --config-file /root/.config/alacritty/alacritty.yml -e ranger
+		Ranger Float			sudo alacritty --class alacritty-float,alacritty-float --config-file /root/.config/alacritty/alacritty.yml -e ranger
 		Pcmanfm			(sudo pcmanfm &> /dev/null &)
 	Leafpad					(sudo leafpad &> /dev/null &)
 	Geany					(sudo geany &> /dev/null &)
-	Nvim					(sudo termite -e nvim)
+	Nvim					sudo alacritty -e nvim
 Applications
 	Multimedia
 		SMplayer			(smplayer &> /dev/null &)
+		Spotify				(spotify &> /dev/null &)
+		Mp3 Player			alacritty -e ncmpcpp
+		Visualizer			alacritty -e cava
+	Graphism
+		Gimp				(gimp &> /dev/null &)
+		Gcolor3				(gcolor3 &> /dev/null &)
+		Color Picker			color_picker
+	Develop
+		Atom				(atom &> /dev/null &)
+		QtCreator			(qtcreator &> /dev/null &)
 	Utils
-		Htop				termite -e htop
+		Htop				alacritty -e htop
 		Geany				(geany &> /dev/null &)
 		Leafpad				(leafpad &> /dev/null &)
+		Vmware				(vmware &> /dev/null &)
+		Virtualbox			(virtualbox &> /dev/null &)
 		KeepassXC			(keepassxc &> /dev/null &)
 		Veracrypt			(veracrypt &> /dev/null &)
+		Fonts Manager		(font-manager &> /dev/null &)
 		Bootable Usb			(mintstick -m iso &> /dev/null &)
 		Format Usb			(mintstick -m format &> /dev/null &)
 		Infos System			(hardinfo &> /dev/null &)
 		Gparted				(gparted &> /dev/null &)
 	Funny Apps
-		Neofetch			termite -e "$SHELL -c 'neofetch && $SHELL'" &
-		Neofetch Cat		termite -e "$SHELL -c 'neofetch --source $HOME/.config/neofetch/asciicat && $SHELL'" &
-		Pipes 1				termite -e pipes-1.sh
-		Pipes 2				termite -e pipes-2.sh
-		Pipes 3				termite -e pipes-3.sh
-		Invaders				termite -e "$SHELL -c 'invaders.sh && $SHELL'" &
-		Color Bars			termite -e "$SHELL -c 'colortest.sh && $SHELL'" &
-		Pacman				termite -e "$SHELL -c 'pacmancolor.sh && $SHELL'" &
-		Monsters			termite -e "$SHELL -c 'monster.sh && $SHELL'" &
+		Neofetch			alacritty -e $SHELL -c 'neofetch && $SHELL' &
+		Pipes 1				alacritty -e pipes-1.sh
+		Pipes 2				alacritty -e pipes-2.sh
+		Pipes 3				alacritty -e pipes-3.sh
+		Invaders				alacritty -e $SHELL -c 'invaders.sh && $SHELL' &
+		Color Bars			alacritty -e $SHELL -c 'colortest.sh && $SHELL' &
+		Pacman				alacritty -e $SHELL -c 'pacmancolor.sh && $SHELL' &
+		Monsters			alacritty -e $SHELL -c 'monster.sh && $SHELL' &
 Configuration
 	Change theme
 		Archlinux			$HOME/.config/styles/archlinux.sh &> /dev/null &
-		Aurore				$HOME/.config/styles/aurore.sh &> /dev/null &
 		Coffee				$HOME/.config/styles/coffee.sh &> /dev/null &
 		Cyberpunk			$HOME/.config/styles/cyberpunk.sh &> /dev/null &
 		Forest				$HOME/.config/styles/forest.sh &> /dev/null &
@@ -84,10 +93,11 @@ Configuration
 		Nord				$HOME/.config/styles/nord.sh &> /dev/null &
 		Packarch			$HOME/.config/styles/packarch.sh &> /dev/null &
 		Sexy				$HOME/.config/styles/sexy.sh &> /dev/null &
+		Aurore				$HOME/.config/styles/aurore.sh &> /dev/null &
 	Edit config files
-		Bspwm config		termite -e 'nvim $HOME/.config/bspwm/bspwmrc' --class termite-float
-		Bspwm sxhkd		termite -e 'nvim $HOME/.config/bspwm/sxhkd/sxhkdrc' --class termite-float		
-		Edit this menu		termite -e 'nvim $HOME/.config/xmenu/xmenu.sh' --class termite-float		
+		Bspwm config		alacritty --class alacritty-float,alacritty-float -e nvim $HOME/.config/bspwm/bspwmrc
+		Bspwm sxhkd		alacritty --class alacritty-float,alacritty-float -e nvim $HOME/.config/bspwm/sxhkd/sxhkdrc	
+		Edit this menu		alacritty --class alacritty-float,alacritty-float -e nvim $HOME/.config/xmenu/xmenu.sh	
 		Restart WM			$RESTARTWM
 		Reload keybinding	pkill -USR1 -x sxhkd
 		Restart Polybar		$HOME/.config/polybar/launch.sh &> /dev/null &
@@ -127,6 +137,12 @@ Places
 	Images					(pcmanfm -n $(xdg-user-dir PICTURES) &> /dev/null &)
 	Documents				(pcmanfm -n $(xdg-user-dir DOCUMENTS) &> /dev/null &)
 	Config					(pcmanfm -n $HOME/.config &> /dev/null &)
+	Syno Ds918
+		Syno Partage			(pcmanfm -n /mnt/Partage/ &> /dev/null &)
+		Syno Films			(pcmanfm -n /mnt/Partage/Films/ &> /dev/null &)
+		Syno Torrents		(pcmanfm -n /mnt/Partage/torrents/ &> /dev/null &)
+		Syno Musiques		(pcmanfm -n /mnt/Musiques/ &> /dev/null &)
+		Syno Photos			(pcmanfm -n /mnt/Photos/&> /dev/null &)
 
 Lock Screen					betterlockscreen -l blur
 Power

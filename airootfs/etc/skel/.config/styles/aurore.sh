@@ -5,7 +5,7 @@
 WM="$DESKTOP_SESSION"
 DIR="$HOME/.config"
 XDIR="$HOME/.Xresources.d"
-cat "$DIR"/styles/nord > "$XDIR"/colors
+cat "$DIR"/styles/aurore > "$XDIR"/colors
 xrdb ~/.Xresources
 
 getcolors () {
@@ -47,7 +47,7 @@ xmenu () {
 	sed -i -e 's/background_color=.*/background_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/foreground_color=.*/foreground_color="'${FOREGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/selbackground_color=.*/selbackground_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
-	sed -i -e 's/selforeground_color=.*/selforeground_color="'${YELLOW}'",/' $DIR/xmenu/config.h
+	sed -i -e 's/selforeground_color=.*/selforeground_color="'${BLUE}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/separator_color=.*/separator_color="'${BLACK}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/border_color=.*/border_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h	
 	cd $DIR/xmenu/ && make
@@ -61,17 +61,17 @@ geany () {
 
 gtk () {
 	xfconf-query -c xsettings -p /Net/ThemeName -s "Fantome"
-	xfconf-query -c xsettings -p /Net/IconThemeName -s "Sardi-Flat-Colora-Polo"
+	xfconf-query -c xsettings -p /Net/IconThemeName -s "Sardi-Flat-Mint-Y-Red"
 	xfconf-query -c xsettings -p /Gtk/CursorThemeName -s "Bibata_Ice"
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
 divers () {
 	dunstify -r 1 -t 0 "Generating image cache for betterlockscreen. Please wait..."
-	betterlockscreen -u /usr/share/backgrounds/nord.jpg
-	nitrogen --set-zoom-fill --save /usr/share/backgrounds/nord.jpg
+	betterlockscreen -u /usr/share/backgrounds/aurore.jpg
+	nitrogen --set-zoom-fill --save /usr/share/backgrounds/aurore.jpg
 	sed -i -e 's/progressbar_color = .*/progressbar_color = "black"/g' $HOME/.ncmpcpp/config
-	sed -i -e 's/STYLE=.*/STYLE="nord"/g' $DIR/polybar/launch.sh
+	sed -i -e 's/STYLE=.*/STYLE="aurore"/g' $DIR/polybar/launch.sh
 	sed -i -e 's/bspc config bottom_padding.*/bspc config bottom_padding 30/g' $DIR/bspwm/bspwmrc
 	sed -i -e 's/bspc config top_padding.*/bspc config top_padding 30; bspc config bottom_padding 30; bspc config -d focused window_gap 10/g' $DIR/bspwm/sxhkd/sxhkdrc
 	pkill -USR1 -x sxhkd
@@ -207,7 +207,7 @@ restartwm () {
   	elif [[ $WM == "herbstluftwm" ]]; then
   	echo "hello Herbstluftwm"
   	dunstify -r 1 -t 0 "Restarting Herbstluftwm. Please wait..."
-    herbstclient reload
+        herbstclient reload
 	fi
 }
 

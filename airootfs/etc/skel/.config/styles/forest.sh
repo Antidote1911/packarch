@@ -30,6 +30,19 @@ getcolors () {
 	ALTWHITE="$(xrdb -query | grep 'color15:'| awk '{print $NF}')"
 }
 
+cava () {
+	sed -i -e 's/gradient =.*/gradient = 1,/' $DIR/xmenu/config.h
+	sed -i -e "s/gradient_color_1 =.*/gradient_color_1 = '#FFC9BA'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_2 =.*/gradient_color_2 = '#FB8C6C'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_3 =.*/gradient_color_3 = '#FB8C6C'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_4 =.*/gradient_color_4 = '#FB6D44'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_5 =.*/gradient_color_5 = '#FB6D44'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_6 =.*/gradient_color_6 = '#FB4C19'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_7 =.*/gradient_color_7 = '#FB4C19'/" $DIR/cava/config
+	sed -i -e "s/gradient_color_8 =.*/gradient_color_8 = '#FB3900'/" $DIR/cava/config
+	pkill -USR1 cava
+}
+
 xmenu () {
 	sed -i -e 's/background_color=.*/background_color="'${BACKGROUND}'",/' $DIR/xmenu/config.h
 	sed -i -e 's/foreground_color=.*/foreground_color="'${FOREGROUND}'",/' $DIR/xmenu/config.h
@@ -43,7 +56,7 @@ xmenu () {
 
 geany () {
 	sed -i -e 's/color_scheme=.*/color_scheme=forest.conf/g' $DIR/geany/geany.conf
-	sed -i -e 's/editor_font=.*/editor_font=Noto Sans 11/g' $DIR/geany/geany.conf
+	sed -i -e 's/editor_font=.*/editor_font=Source Code Pro Medium 10/g' $DIR/geany/geany.conf
 }
 
 gtk () {
@@ -53,63 +66,15 @@ gtk () {
 	xfconf-query -c xsettings -p /Gtk/FontName -s "Noto Sans 10"
 }
 
-obconf () {
-	namespace="http://openbox.org/3.4/rc"
-	config="$DIR/openbox/rc.xml"
-	theme="Arrondie-Tea"
-	layout="CLM"
-	font="Noto Sans 11"
-	fontsize="11"
-
-	# Theme
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:name' -v "$theme" "$config"
-
-	# Title
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:titleLayout' -v "$layout" "$config"
-
-	# Fonts
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveWindow"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveWindow"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveWindow"]/a:weight' -v Bold "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveWindow"]/a:slant' -v Normal "$config"
-
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveWindow"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveWindow"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveWindow"]/a:weight' -v Normal "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveWindow"]/a:slant' -v Normal "$config"
-
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuHeader"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuHeader"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuHeader"]/a:weight' -v Bold "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuHeader"]/a:slant' -v Normal "$config"
-
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuItem"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuItem"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuItem"]/a:weight' -v Normal "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="MenuItem"]/a:slant' -v Normal "$config"
-
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveOnScreenDisplay"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveOnScreenDisplay"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveOnScreenDisplay"]/a:weight' -v Bold "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="ActiveOnScreenDisplay"]/a:slant' -v Normal "$config"
-
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveOnScreenDisplay"]/a:name' -v "$font" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveOnScreenDisplay"]/a:size' -v "$fontsize" "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveOnScreenDisplay"]/a:weight' -v Normal "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:theme/a:font[@place="InactiveOnScreenDisplay"]/a:slant' -v Normal "$config"
-
-	# Margins
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:margins/a:top' -v 0 "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:margins/a:bottom' -v 10 "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:margins/a:left' -v 10 "$config"
-	xmlstarlet ed -L -N a="$namespace" -u '/a:openbox_config/a:margins/a:right' -v 10 "$config"
-}
-
 divers () {
 	dunstify -r 1 -t 0 "Generating image cache for betterlockscreen. Please wait..."
 	betterlockscreen -u /usr/share/backgrounds/forest.jpg
 	nitrogen --set-zoom-fill --save /usr/share/backgrounds/forest.jpg
 	sed -i -e 's/progressbar_color = .*/progressbar_color = "black"/g' $HOME/.ncmpcpp/config
+	sed -i -e 's/STYLE=.*/STYLE="forest"/g' $DIR/polybar/launch.sh
+	sed -i -e 's/bspc config bottom_padding.*/bspc config bottom_padding 30/g' $DIR/bspwm/bspwmrc
+	sed -i -e 's/bspc config top_padding.*/bspc config top_padding 30; bspc config bottom_padding 30; bspc config -d focused window_gap 10/g' $DIR/bspwm/sxhkd/sxhkdrc
+	pkill -USR1 -x sxhkd
 }
 
 bspbar () {
@@ -143,7 +108,7 @@ bspterm () {
 	[colors]
 
 	foreground=${FOREGROUND}
-	background=rgba(41, 53, 59, 0.8)
+	background=${BACKGROUND}
 	cursor=${CURSOR}
 
 	color0=${BLACK}
@@ -196,7 +161,7 @@ _EOF_
 
 dunst () {
 	sed -i -e 's/geometry = .*/geometry = "250x50-10+38"/g' $DIR/dunst/dunstrc
-	sed -i -e 's/font = .*/font = Noto Sans 11/g' $DIR/dunst/dunstrc
+	sed -i -e 's/font = .*/font = Noto Sans 10/g' $DIR/dunst/dunstrc
 	sed -i -e 's/frame_width = .*/frame_width = 1/g' $DIR/dunst/dunstrc
 
 	cat > $DIR/dunst/sid <<- EOF
@@ -248,10 +213,10 @@ restartwm () {
 
 main () {
 	getcolors
+	cava
 	xmenu
 	geany
 	gtk
-	obconf
 	divers
 	bspbar
 	bspterm

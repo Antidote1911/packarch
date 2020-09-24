@@ -1,10 +1,7 @@
 #!/usr/bin/env sh
 
-# More info : https://github.com/jaagr/polybar/wiki
-
-# Install the following applications for polybar and icons in polybar if you are on ArcoLinuxD
-# awesome-terminal-fonts
-# Tip : There are other interesting fonts that provide icons like nerd-fonts-complete
+# Launch the bar
+STYLE="packarch"
 
 # Terminate already running bar instances
 killall -q polybar
@@ -39,18 +36,18 @@ case $desktop in
     bspwm|/usr/share/xsessions/bspwm)
     if type "xrandr" > /dev/null; then
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-        MONITOR=$m polybar --reload top -c ~/.config/polybar/config_bspwm.ini &
+        MONITOR=$m polybar --reload top -c ~/.config/polybar/"$STYLE"/config_bspwm.ini &
       done
     else
-    polybar --reload top -c ~/.config/polybar/config_bspwm.ini &
+    polybar --reload top -c ~/.config/polybar/"$STYLE"/config_bspwm.ini &
     fi
     # second polybar at bottom
      if type "xrandr" > /dev/null; then
        for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-         MONITOR=$m polybar --reload bottom -c ~/.config/polybar/config_bspwm.ini &
+         MONITOR=$m polybar --reload bottom -c ~/.config/polybar/"$STYLE"/config_bspwm.ini &
        done
      else
-     polybar --reload bottom -c ~/.config/polybar/config_bspwm.ini &
+     polybar --reload bottom -c ~/.config/polybar/"$STYLE"/config_bspwm.ini &
      fi
     ;;
 
