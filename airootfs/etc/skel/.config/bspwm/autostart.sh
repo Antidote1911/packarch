@@ -31,5 +31,5 @@ run dunst &
 pkill -9 -f bspfloat &
 run bspfloat &
 
-bspcomp
+# bspcomp
 sh ~/.config/polybar/launch.sh &
