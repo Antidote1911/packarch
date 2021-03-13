@@ -21,6 +21,7 @@ bspwm
 calc
 cava
 colorpicker
+compton-tryone-git
 dunst
 feh
 fetchmirrors
@@ -88,7 +89,6 @@ p7zip
 pavucontrol
 pcmanfm
 perl-linux-desktopfiles
-picom-ibhagwan-git
 plank
 polkit-gnome
 polybar
