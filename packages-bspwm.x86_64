@@ -12,6 +12,7 @@ arch-install-scripts
 archiso
 atril
 base-devel
+bc
 betterlockscreen
 bibata-cursor-theme
 blueman
@@ -44,6 +45,7 @@ gvfs-nfs
 gvfs-smb
 hardinfo
 htop
+i3lock-color
 imagemagick
 intel-media-driver
 jq
@@ -94,6 +96,7 @@ pulseaudio-alsa
 pulseaudio-bluetooth
 pulseaudio-zeroconf
 pv
+python-clickgen
 python-pyparted
 python-pyxdg
 ranger
@@ -108,7 +111,7 @@ smplayer
 squashfs-tools
 sxhkd
 system-config-printer
-terminus-font-otb
+terminus-font
 termite
 ttf-dejavu
 ttf-droid
