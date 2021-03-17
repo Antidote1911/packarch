@@ -1,1 +1,0 @@
-alacritty --hold -e $SHELL -c 'neofetch && $SHELL'  &

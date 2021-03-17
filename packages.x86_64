@@ -23,10 +23,10 @@ ethtool
 exfatprogs
 f2fs-tools
 fsarchiver
+grml-zsh-config
 gnu-netcat
 gpm
 gptfdisk
-grml-zsh-config
 haveged
 hdparm
 intel-ucode
@@ -81,7 +81,6 @@ syslinux
 systemd-resolvconf
 tcpdump
 terminus-font
-termite-terminfo
 testdisk
 usb_modeswitch
 usbutils

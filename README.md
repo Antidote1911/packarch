@@ -12,4 +12,4 @@ This is NOT a general purpose distro. This is only my configuration. Be free to 
 - All modifications must be in root
 - Check packages list
 - Clear pacman cache (sudo pacman -Scc)
-- launch build.sh as root
+- sudo build.sh -v

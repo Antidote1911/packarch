@@ -40,10 +40,14 @@ sed -i '/^hosts:/ {
   [[ -e /usr/lib/systemd/system/smb.service                  ]] && systemctl enable smb.service;
   [[ -e /usr/lib/systemd/system/systemd-timesyncd.service    ]] && systemctl enable systemd-timesyncd.service;
   [[ -e /usr/lib/systemd/system/winbind.service              ]] && systemctl enable winbind.service;
+  [[ -e /usr/lib/systemd/system/vboxservice.service          ]] && systemctl enable vboxservice.service;
+  [[ -e /usr/lib/systemd/system/vmtoolsd.service             ]] && systemctl enable vmtoolsd.service;
+  [[ -e /usr/lib/systemd/system/vmware-vmblock-fuse.service  ]] && systemctl enable vmware-vmblock-fuse.service;
 } > /dev/null 2>&1
 
-# Set lightdm display-manager
-ln -s /usr/lib/systemd/system/lightdm.service /etc/systemd/system/display-manager.service
+# Set display-manager
+ln -s /usr/lib/systemd/system/sddm.service /etc/systemd/system/display-manager.service
+systemctl set-default graphical.target
 
 # Add live user
 # * groups member
@@ -53,15 +57,8 @@ useradd -m -G "adm,audio,floppy,log,network,rfkill,scanner,storage,optical,power
 sed -i 's/^\(live:\)!:/\1:/' /etc/shadow
 sed -i 's/^#\s\(%wheel\s.*NOPASSWD\)/\1/' /etc/sudoers
 
-# Create autologin group
-# add live to autologin group
-groupadd -r autologin
-gpasswd -a live autologin
-
 # disable systemd-networkd.service
 # we have NetworkManager for managing network interfaces
 [[ -e /etc/systemd/system/multi-user.target.wants/systemd-networkd.service ]] && rm /etc/systemd/system/multi-user.target.wants/systemd-networkd.service
 [[ -e /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service ]] && rm /etc/systemd/system/network-online.target.wants/systemd-networkd-wait-online.service
 [[ -e /etc/systemd/system/sockets.target.wants/systemd-networkd.socket ]] && rm /etc/systemd/system/sockets.target.wants/systemd-networkd.socket
-
-systemctl enable vboxservice.service vmtoolsd.service vmware-vmblock-fuse.service
