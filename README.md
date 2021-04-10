@@ -1,5 +1,5 @@
 # Packarch
-Very fast (zstd compression) archlinux live iso with Bspwm, Herbstluftwm, and Openbox.
+Very fast (zstd compression) archlinux live iso with Bspwm.
 
 Can boot on :
 - Desktops
